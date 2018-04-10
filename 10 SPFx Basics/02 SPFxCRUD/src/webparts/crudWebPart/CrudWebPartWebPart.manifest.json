@@ -1,0 +1,26 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "671458df-e9e8-43ed-a372-e6138077e588",
+  "alias": "CrudWebPartWebPart",
+  "componentType": "WebPart",
+  "version": "*", // The "*" signifies that the version should be taken from the package.json
+  "manifestVersion": 2,
+
+  /**
+   * This property should only be set to true if it is certain that the webpart does not
+   *  allow arbitrary scripts to be called
+   */
+  "safeWithCustomScriptDisabled": false,
+
+  "preconfiguredEntries": [{
+    "groupId": "671458df-e9e8-43ed-a372-e6138077e588",
+    "group": { "default": "Under Development" },
+    "title": { "default": "CRUD-WebPart" },
+    "description": { "default": "CRUD-WebPart description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "CRUD-WebPart"
+    }
+  }]
+}

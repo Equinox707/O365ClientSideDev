@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MVCAppGraph.Models.DisplayMessage>
+
+@{
+    ViewBag.Title = "Inbox";
+}
+
+<h2>Inbox</h2>
+
+
+<div id="divMessages">@Html.Raw(ViewBag.JsonResponse)</div>

@@ -69,7 +69,7 @@ function changeLayout() {
 
     var divs = Array.prototype.slice.call(document.getElementsByClassName("menuDiv"));
     var ul = document.getElementById("menu");
-
+    
     for (var i = 0; i < divs.length; i++) {
         var div = divs[i];
         if (i!=divs.length-1) {

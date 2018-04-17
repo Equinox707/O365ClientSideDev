@@ -1,9 +1,10 @@
 ﻿using System;
+using Microsoft.SharePoint;
 using Microsoft.SharePoint.WebControls;
 
-namespace REST_Basics.Layouts.REST_Basics
+namespace RESTBasics.Layouts.RESTBasics
 {
-    public partial class RESTBasics : LayoutsPageBase
+    public partial class RESTDemos : LayoutsPageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

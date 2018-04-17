@@ -70,12 +70,12 @@
     <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Layouts\RESTBasics\RESTBasics.aspx.cs">
-      <DependentUpon>RESTBasics.aspx</DependentUpon>
+    <Compile Include="Layouts\RESTBasics\RESTDemos.aspx.cs">
+      <DependentUpon>RESTDemos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\RESTBasics\RESTBasics.aspx.designer.cs">
-      <DependentUpon>RESTBasics.aspx.cs</DependentUpon>
+    <Compile Include="Layouts\RESTBasics\RESTDemos.aspx.designer.cs">
+      <DependentUpon>RESTDemos.aspx.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -111,8 +111,7 @@
     </Content>
     <Content Include="Layouts\RESTBasics\apiexplorerpaste.js" />
     <Content Include="Layouts\RESTBasics\jquery-2.1.4.min.js" />
-    <Content Include="Layouts\RESTBasics\RESTBasics.aspx" />
-    <Content Include="Layouts\RESTBasics\RESTBasics.aspx.js" />
+    <Content Include="Layouts\RESTBasics\RESTDemos.aspx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -133,5 +132,4 @@
     </ItemGroup>
   </Target>
   <Import Project="..\packages\Microsoft.TypeScript.MSBuild.2.6.2\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.2.6.2\build\Microsoft.TypeScript.MSBuild.targets')" />
-
 </Project>

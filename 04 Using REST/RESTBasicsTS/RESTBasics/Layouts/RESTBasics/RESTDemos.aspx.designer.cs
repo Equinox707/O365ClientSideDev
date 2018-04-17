@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace REST_Basics.Layouts.REST_Basics {
+namespace RESTBasics.Layouts.RESTBasics {
     
     
-    public partial class RESTBasics {
+    public partial class RESTDemos {
         
         /// <summary>
         /// jquery control.

@@ -81,12 +81,11 @@ function updateList() {
             "X-HTTP-Method": "MERGE",
             "IF-MATCH": "*"
         },
-        success: function () { console.log("list renamed") },
-        error: function (err) { console.log(err) }
+        success: () => { console.log("list renamed") },
+        error: err => { console.log(err) }
     });
 }
 
-//FieldTypeKind Values: https://msdn.microsoft.com/EN-US/library/office/microsoft.sharepoint.client.fieldtype.aspx
 function addField() {
     debugger;
 
@@ -109,8 +108,8 @@ function addField() {
             "X-RequestDigest": $("#__REQUESTDIGEST").val(),
             "IF-MATCH": "*"
         },
-        success: function () { console.log("field added") },
-        error: function (err) { console.log(err) }
+        success: () => { console.log("field added") },
+        error: err => { console.log(err) }
     });
 }
 
@@ -124,12 +123,12 @@ function getItems() {
             "Accept": "application/json;odata=verbose",
             "Content-Type": "application/json; odata=verbose"
         },
-        success: function (data) {
+        success: data => {
             if (data.d.results) {
                 console.log(data.d.results);
             }
         },
-        error: function (err) { console.log(err) }
+        error: err => { console.log(err) }
     });
 }
 
@@ -145,10 +144,10 @@ function doExpanding() {
             "accept": "application/json;odata=verbose",
             "content-type": "application/json;odata=verbose"
         },
-        success: function (data) {
+        success: data => {
             console.log(data.d);
         },
-        error: function (err) { console.log(err) }
+        error: err => { console.log(err) }
     });
 }
 
@@ -156,12 +155,30 @@ function doExpanding() {
 function getUserProps() {
 
     //Get all properties of current user
-    execLog("/_api/SP.UserProfiles.PeopleManager/GetMyProperties");
+    execProfileQuery("/_api/SP.UserProfiles.PeopleManager/GetMyProperties");
     //Get single property of current user
-    execLog("_api/SP.UserProfiles.PeopleManager/GetMyProperties/PictureUrl");
+    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetMyProperties/PictureUrl");
     //Get all properties of specific user
-    execLog("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='sp\\administrator'");
-    execLog("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|you@yoursiteurl.onmicrosoft.com");
+    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='sp\\administrator'");
+    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|you@yoursiteurl.onmicrosoft.com");
+}
+
+
+function execProfileQuery(url) {
+    debugger;
+
+    $.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + url,
+        type: "GET",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose"
+        },
+        success: function (data) {
+            console.log(data.d);
+        },
+        error: function (err) { console.log(err) }
+    });
 }
 
 
@@ -185,22 +202,6 @@ function usingGetItems() {
     });
 }
 
-function execLog(url) {
-    debugger;
-
-    $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + url,
-        type: "GET",
-        headers: {
-            "accept": "application/json;odata=verbose",
-            "content-type": "application/json;odata=verbose"
-        },
-        success: function (data) {
-            console.log(data.d);
-        },
-        error: function (err) { console.log(err) }
-    });
-}
 
 
 

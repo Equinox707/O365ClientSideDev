@@ -1,8 +1,4 @@
-﻿
-//Excellent intro @:
-//http://www.codeproject.com/Articles/990131/CRUD-Operation-to-List-Using-SharePoint-Rest-API
-
-enum SPOperation {
+﻿enum SPOperation {
     get,
     create,
     update,

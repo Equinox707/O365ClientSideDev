@@ -130,16 +130,15 @@ function doExpanding() {
     });
 }
 function getUserProps() {
+    debugger;
     //Get all properties of current user
     execProfileQuery("/_api/SP.UserProfiles.PeopleManager/GetMyProperties");
     //Get single property of current user
-    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetMyProperties/PictureUrl");
+    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetMyProperties/DisplayName");
     //Get all properties of specific user
     execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='spdom\\administrator'");
-    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|alexander.pajer@integrations.at");
 }
 function execProfileQuery(url) {
-    debugger;
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + url,
         type: "GET",

@@ -159,8 +159,8 @@ function getUserProps() {
     //Get single property of current user
     execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetMyProperties/PictureUrl");
     //Get all properties of specific user
-    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='sp\\administrator'");
-    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|you@yoursiteurl.onmicrosoft.com");
+    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='spdom\\administrator'");
+    execProfileQuery("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|alexander.pajer@integrations.at");
 }
 
 
@@ -174,10 +174,10 @@ function execProfileQuery(url) {
             "accept": "application/json;odata=verbose",
             "content-type": "application/json;odata=verbose"
         },
-        success: function (data) {
+        success: data => {
             console.log(data.d);
         },
-        error: function (err) { console.log(err) }
+        error: err => { console.log(err) }
     });
 }
 
@@ -193,12 +193,12 @@ function usingGetItems() {
             "Accept": "application/json;odata=verbose",
             "Content-Type": "application/json; odata=verbose"
         },
-        success: function (data) {
+        success: data => {
             if (data.d.results) {
                 console.log(data.d);
             }
         },
-        error: function (err) { console.log(err) }
+        error: err => { console.log(err) }
     });
 }
 
@@ -229,8 +229,8 @@ function addListItem() {
             "Accept": "application/json;odata=verbose",
             "X-RequestDigest": $("#__REQUESTDIGEST").val()
         },
-        success: function () { console.log("item added to list") },
-        error: function (err) { console.log(err) }
+        success: () => { console.log("item added to list") },
+        error: err => { console.log(err) }
     });
 
 }

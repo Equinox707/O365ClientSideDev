@@ -23,13 +23,14 @@ function renderNews(items) {
     debugger;
 
     var html = "<ul>";
-    items.forEach(function (item) {
-        //console.log("Reading item: ", item.Title);
+    items.forEach(item => {        
         html += `<li>${item.Title}</li>`;
+        //console.log("Reading item: ", item.Title);
     });
     html += "</ul>";
 
-    $("#result").html(html);
+    $("#result").html(html); //jQuery Syntax
+    // document.getElementById("result").innerHTML = html; JS Native
 
 }
 
@@ -54,12 +55,13 @@ function createList() {
         type: "POST",
         data: body,
         headers: {
+            //Create needs a specific header
             "accept": "application/json;odata=verbose",
             "content-type": "application/json;odata=verbose",
             "X-RequestDigest": digest
         },
-        success: function (data) { console.log("list created") },
-        error: function (err) { console.log(err) }
+        success: data => { console.log("list created") },
+        error: err => { console.log(err) }
     });
 };
 
@@ -150,11 +152,24 @@ function doExpanding() {
     });
 }
 
+
+function getUserProps() {
+
+    //Get all properties of current user
+    execLog("/_api/SP.UserProfiles.PeopleManager/GetMyProperties");
+    //Get single property of current user
+    execLog("_api/SP.UserProfiles.PeopleManager/GetMyProperties/PictureUrl");
+    //Get all properties of specific user
+    execLog("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='sp\\administrator'");
+    execLog("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|you@yoursiteurl.onmicrosoft.com");
+}
+
+
 function usingGetItems() {
     debugger;
 
     $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('MyRestList')/GetItems(query=@v1)?@v1={\"ViewXml\":\"<View><Query><OrderBy><FieldRef Name='Created' /></OrderBy></Query></View>\"}",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('News')/GetItems(query=@v1)?@v1={\"ViewXml\":\"<View><Query><OrderBy><FieldRef Name='Created' /></OrderBy></Query></View>\"}",
         type: "POST",
         headers: {
             "X-RequestDigest": $("#__REQUESTDIGEST").val(),
@@ -168,17 +183,6 @@ function usingGetItems() {
         },
         error: function (err) { console.log(err) }
     });
-}
-
-function getUserProps() {
-
-    //Get all properties of current user
-    execLog("/_api/SP.UserProfiles.PeopleManager/GetMyProperties");
-    //Get single property of current user
-    execLog("_api/SP.UserProfiles.PeopleManager/GetMyProperties/PictureUrl");
-    //Get all properties of specific user
-    execLog("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='sp\\administrator'");
-    execLog("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|you@yoursiteurl.onmicrosoft.com");
 }
 
 function execLog(url) {

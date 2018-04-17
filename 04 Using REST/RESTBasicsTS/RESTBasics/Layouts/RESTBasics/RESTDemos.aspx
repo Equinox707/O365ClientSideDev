@@ -25,8 +25,10 @@
     <a href="#" onclick="updateListItem()">Update List Item</a><br/>
     <a href="#" onclick="deleteList()">Delete List</a>  <br/>  
     <a href="#" onclick="createSite()">Create Site</a><br/>
-    <a href="#" onclick="useUtilClass()">Call out first REST function</a><br/>
+    <a href="#" onclick="useUtilClass()">Call our REST Util Tools</a><br/>
+    <hr/>
     <div>Result:</div>
+    <hr/>
     <div id="result"></div>    
 </asp:Content>
 

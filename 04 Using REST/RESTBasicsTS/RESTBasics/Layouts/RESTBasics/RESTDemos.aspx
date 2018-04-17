@@ -12,8 +12,7 @@
     <SharePoint:ScriptLink ID="RESTBasicsSL" Name="RESTBasics/RESTBasics.js" Localizable="False" runat="server"/> 
 </asp:Content>
 
-<asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
-    <a href="#" onclick="firstREST()">Call out first REST function</a><br/>
+<asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">    
     <a href="#" onclick="readNews()">Read News</a><br/>
     <a href="#" onclick="createList()">Create List</a><br/>
     <a href="#" onclick="updateList()">Update List</a><br/>
@@ -26,6 +25,7 @@
     <a href="#" onclick="updateListItem()">Update List Item</a><br/>
     <a href="#" onclick="deleteList()">Delete List</a>  <br/>  
     <a href="#" onclick="createSite()">Create Site</a><br/>
+    <a href="#" onclick="useUtilClass()">Call out first REST function</a><br/>
     <div>Result:</div>
     <div id="result"></div>    
 </asp:Content>

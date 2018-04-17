@@ -1,48 +1,5 @@
-//Excellent intro @:
-//http://www.codeproject.com/Articles/990131/CRUD-Operation-to-List-Using-SharePoint-Rest-API
-var SPOperation;
-(function (SPOperation) {
-    SPOperation[SPOperation["get"] = 0] = "get";
-    SPOperation[SPOperation["create"] = 1] = "create";
-    SPOperation[SPOperation["update"] = 2] = "update";
-    SPOperation[SPOperation["delete"] = 3] = "delete";
-})(SPOperation || (SPOperation = {}));
-var SPUtil = /** @class */ (function () {
-    function SPUtil() {
-    }
-    SPUtil.prototype.getQuery = function (query) {
-        $.ajax({
-            url: _spPageContextInfo.webAbsoluteUrl + query,
-            type: "GET",
-            headers: { "accept": "application/json;odata=verbose" },
-            success: function (data) { console.log("Success data received", data.d.Title); },
-            error: function (error) { console.log("Error happened:", error); }
-        });
-        $.ajax({
-            url: _spPageContextInfo.webAbsoluteUrl + query,
-            type: "GET",
-            headers: this.getHeaders(SPOperation.get),
-            success: function (data) { console.log("Success data received", data.d.Title); },
-            error: function (error) { console.log("Error happened:", error); }
-        });
-    };
-    SPUtil.prototype.getHeaders = function (operation) {
-        var result;
-        switch (SPOperation) {
-            case (SPOperation.get):
-                result = { "accept": "application/json;odata=verbose" };
-            default:
-        }
-        return result;
-    };
-    return SPUtil;
-}());
-function firstREST() {
-    debugger;
-    var util = new SPUtil();
-    util.getQuery("/_api/web");
-}
 function readNews() {
+    debugger;
     var query = "/_api/web/lists/getByTitle('News')/Items";
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + query,
@@ -60,6 +17,7 @@ function readNews() {
     });
 }
 function renderNews(items) {
+    debugger;
     var html = "<ul>";
     items.forEach(function (item) {
         //console.log("Reading item: ", item.Title);
@@ -198,6 +156,7 @@ function getUserProps() {
     execLog("_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='i:0%23.f|membership|you@yoursiteurl.onmicrosoft.com");
 }
 function execLog(url) {
+    debugger;
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + url,
         type: "GET",
@@ -325,5 +284,48 @@ function createSite() {
         success: function () { console.log("Site created"); },
         error: function (err) { console.log(err); }
     });
+}
+var SPOperation;
+(function (SPOperation) {
+    SPOperation[SPOperation["get"] = 0] = "get";
+    SPOperation[SPOperation["create"] = 1] = "create";
+    SPOperation[SPOperation["update"] = 2] = "update";
+    SPOperation[SPOperation["delete"] = 3] = "delete";
+})(SPOperation || (SPOperation = {}));
+var SPUtil = /** @class */ (function () {
+    function SPUtil() {
+    }
+    SPUtil.prototype.getQuery = function (query) {
+        debugger;
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + query,
+            type: "GET",
+            headers: { "accept": "application/json;odata=verbose" },
+            success: function (data) { console.log("Success data received", data.d.Title); },
+            error: function (error) { console.log("Error happened:", error); }
+        });
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + query,
+            type: "GET",
+            headers: this.getHeaders(SPOperation.get),
+            success: function (data) { console.log("Success data received", data.d.Title); },
+            error: function (error) { console.log("Error happened:", error); }
+        });
+    };
+    SPUtil.prototype.getHeaders = function (operation) {
+        var result;
+        switch (SPOperation) {
+            case (SPOperation.get):
+                result = { "accept": "application/json;odata=verbose" };
+            default:
+        }
+        return result;
+    };
+    return SPUtil;
+}());
+function useUtilClass() {
+    debugger;
+    var util = new SPUtil();
+    util.getQuery("/_api/web");
 }
 //# sourceMappingURL=RESTBasics.js.map

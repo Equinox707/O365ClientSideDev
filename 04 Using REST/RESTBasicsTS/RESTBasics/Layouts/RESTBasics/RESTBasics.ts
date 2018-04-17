@@ -1,52 +1,5 @@
-﻿enum SPOperation {
-    get,
-    create,
-    update,
-    delete
-}
-
-class SPUtil {
-
-    getQuery(query: string) {
-
-        $.ajax({
-            url: _spPageContextInfo.webAbsoluteUrl + query,
-            type: "GET",
-            headers: {"accept": "application/json;odata=verbose"},
-            success: data => { console.log("Success data received", data.d.Title);},
-            error: error => { console.log("Error happened:", error);}
-        });
-
-        $.ajax({
-            url: _spPageContextInfo.webAbsoluteUrl + query,
-            type: "GET",
-            headers: this.getHeaders(SPOperation.get),
-            success: data => { console.log("Success data received", data.d.Title); },
-            error: error => { console.log("Error happened:", error); }
-        });
-    }
-
-    getHeaders(operation: SPOperation) {
-        var result: any;
-
-        switch (SPOperation) {
-        case (SPOperation.get) as any:
-            result = { "accept": "application/json;odata=verbose" };
-        default:
-        }
-
-        return result;
-    }
-}
-
-function firstREST() {
+﻿function readNews() {
     debugger;
-
-    let util: SPUtil = new SPUtil();
-    util.getQuery("/_api/web");
-}
-
-function readNews() {
 
     var query = "/_api/web/lists/getByTitle('News')/Items";
 
@@ -56,17 +9,18 @@ function readNews() {
         headers: {
             "accept": "application/json;odata=verbose"
         },
-        success: function (data) {
+        success: data => {
             console.log("Success data received", data.d);
             renderNews(data.d.results);
         },
-        error: function (error) {
+        error: error => {
             console.log("Error happened:", error);
         }
     });
 }
 
 function renderNews(items) {
+    debugger;
 
     var html = "<ul>";
     items.forEach(function (item) {
@@ -111,6 +65,7 @@ function createList() {
 
 function updateList() {
     debugger;
+
     var update = JSON.stringify({ '__metadata': { 'type': 'SP.List' }, 'Description': 'A list to test the REST Samples' });
 
     $.ajax({
@@ -159,6 +114,7 @@ function addField() {
 
 function getItems() {
     debugger;
+
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('News')/Items?$select=Title",
         type: "GET",
@@ -177,6 +133,7 @@ function getItems() {
 
 function doExpanding() {
     debugger;
+
     var url = _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('News')/Items?$select=LinkTitle,Author/Name&$expand=Author";
 
     $.ajax({
@@ -195,6 +152,7 @@ function doExpanding() {
 
 function usingGetItems() {
     debugger;
+
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('MyRestList')/GetItems(query=@v1)?@v1={\"ViewXml\":\"<View><Query><OrderBy><FieldRef Name='Created' /></OrderBy></Query></View>\"}",
         type: "POST",
@@ -224,6 +182,8 @@ function getUserProps() {
 }
 
 function execLog(url) {
+    debugger;
+
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + url,
         type: "GET",
@@ -246,6 +206,7 @@ function getListItemType(name) {
 
 function addListItem() {
     debugger;
+
     // Prepping our update
     var item = {
         "__metadata": { "type": getListItemType("MyRestList") },
@@ -271,6 +232,7 @@ function addListItem() {
 
 function updateListItem() {
     debugger;
+
     var listTitle = "News";
     var listItemId = 1;
     var item = {
@@ -300,6 +262,7 @@ function updateListItem() {
 
 function deleteListItem() {
     debugger;
+
     var id = 1;
     var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('News')/items(" + id + ")";
 
@@ -324,6 +287,7 @@ function deleteListItem() {
 
 function deleteList() {
     debugger;
+
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/Lists/getbytitle('MyRestList')",
         method: "POST",
@@ -341,6 +305,7 @@ function deleteList() {
 
 function createSite() {
     debugger;
+
     var paramSite = JSON.stringify(
         {
             'parameters': {
@@ -366,4 +331,53 @@ function createSite() {
         success: function () { console.log("Site created") },
         error: function (err) { console.log(err) }
     });
+}
+
+enum SPOperation {
+    get,
+    create,
+    update,
+    delete
+}
+
+class SPUtil {
+
+    getQuery(query: string) {
+        debugger;
+
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + query,
+            type: "GET",
+            headers: { "accept": "application/json;odata=verbose" },
+            success: data => { console.log("Success data received", data.d.Title); },
+            error: error => { console.log("Error happened:", error); }
+        });
+
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + query,
+            type: "GET",
+            headers: this.getHeaders(SPOperation.get),
+            success: data => { console.log("Success data received", data.d.Title); },
+            error: error => { console.log("Error happened:", error); }
+        });
+    }
+
+    getHeaders(operation: SPOperation) {
+        var result: any;
+
+        switch (SPOperation) {
+        case (SPOperation.get) as any:
+            result = { "accept": "application/json;odata=verbose" };
+        default:
+        }
+
+        return result;
+    }
+}
+
+function useUtilClass() {
+    debugger;
+
+    let util: SPUtil = new SPUtil();
+    util.getQuery("/_api/web");
 }

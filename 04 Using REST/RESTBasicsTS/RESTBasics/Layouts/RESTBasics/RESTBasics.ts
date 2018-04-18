@@ -201,9 +201,6 @@ function usingGetItems() {
     });
 }
 
-
-
-
 function getListItemType(name) {
     return "SP.Data." + name[0].toUpperCase() + name.substring(1) + "ListItem";
 }
@@ -292,8 +289,10 @@ function deleteListItem() {
 function deleteList() {
     debugger;
 
+    var target = _spPageContextInfo.webAbsoluteUrl + "/_api/web/Lists/getbytitle('MyRestList')";
+
     $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/Lists/getbytitle('MyRestList')",
+        url: target,
         method: "POST",
         headers: {
             "accept": "application/json;odata=verbose",
@@ -367,11 +366,22 @@ class SPUtil {
     }
 
     getHeaders(operation: SPOperation) {
-        var result: any;
+        let result: any;
+
+        const digest = $("#__REQUESTDIGEST").val();
 
         switch (SPOperation) {
         case (SPOperation.get) as any:
             result = { "accept": "application/json;odata=verbose" };
+            break;
+        case (SPOperation.create) as any:
+            result = {
+                //Create needs a specific header
+                "accept": "application/json;odata=verbose",
+                "content-type": "application/json;odata=verbose",
+                "X-RequestDigest": digest
+            };
+            break;
         default:
         }
 

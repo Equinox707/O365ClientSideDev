@@ -24,7 +24,7 @@
     <div id="demoContainer" class="container-fluid">
         <div class="row">
             <header class="header">
-                <h3>PowerCamp: Web Development - JavaScript - Demos</h3><br/>
+                
             </header>
         </div>
         <div class="row">
@@ -40,7 +40,7 @@
                 <a onclick="writeAppWebREST()" style="cursor: pointer">Write AddIn Web REST</a><br/>
                 <a onclick="useWebProxy()" style="cursor: pointer">Using Web Proxy to call external ressource</a><br/>
             </div>
-            <div class="workbench col-xs-8 col-xs-offset-1"></div>
+            <div id="workbench" class="workbench col-xs-8 col-xs-offset-1"></div>
         </div>
     </div>
 </asp:Content>

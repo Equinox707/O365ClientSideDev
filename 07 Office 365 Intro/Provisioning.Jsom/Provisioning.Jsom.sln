@@ -1,12 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{7A1059F9-ED14-4979-82A3-8EB07B0700E2}"
-	ProjectSection(SolutionItems) = preProject
-		readme.md = readme.md
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Provisioning.Jsom.App", "Provisioning.Jsom.App\Provisioning.Jsom.App.csproj", "{64625774-0495-4EF6-AF6A-9ED171407C69}"
 EndProject
 Global
@@ -24,5 +19,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94D6BD83-4845-4FC1-ABB2-E51E19FF757B}
 	EndGlobalSection
 EndGlobal

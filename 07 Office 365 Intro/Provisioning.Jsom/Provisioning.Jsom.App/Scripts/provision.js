@@ -5,7 +5,7 @@ var Contoso = Contoso || {};
 Contoso.JSOMProvisioning = Contoso.JSOMProvisioning || {};
 
 Contoso.JSOMProvisioning.ProvisioningClerk = function () {
-    var appweburl, hostweburl
+    var appweburl, hostweburl;
     var sitename, siteurl, sitetemplate;
     var sitecolumnname, sitecolumndisplayname, sitecolumntype;
     var contenttypename, contenttypeid;

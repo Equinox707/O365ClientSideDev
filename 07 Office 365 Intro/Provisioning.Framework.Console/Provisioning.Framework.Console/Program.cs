@@ -18,7 +18,7 @@ namespace Provisioning.Framework
 
             // Collect information 
             string templateWebUrl = GetInput("Enter the URL of the template site: ", false, defaultForeground);
-            string targetWebUrl = GetInput("Enter the URL of the target site: ", false, defaultForeground);
+            string targetWebUrl = GetInput("Enter the URL of the target site to create ", false, defaultForeground);
             string userName = GetInput("Enter your user name:", false, defaultForeground);
             string pwdS = GetInput("Enter your password:", true, defaultForeground);
             SecureString pwd = new SecureString();
@@ -26,6 +26,7 @@ namespace Provisioning.Framework
 
             // Get the template from existing site and serialize that (not really needed)
             ProvisioningTemplate template = GetProvisioningTemplate(defaultForeground, templateWebUrl, userName, pwd);
+            
             // Apply template to new site from 
             ApplyProvisioningTemplate(defaultForeground, targetWebUrl, userName, pwd, template);
 

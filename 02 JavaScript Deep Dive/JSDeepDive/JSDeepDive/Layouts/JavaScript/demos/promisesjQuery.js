@@ -24,6 +24,26 @@ function doAsyncCall() {
     }
 }
 
+function doAsyncCallPromise() {
+    debugger;
+
+    $.ajax({
+        type: "Get",
+        url: url,
+        dataType: 'json',        
+    }).then(function(data) {
+        console.log("query executed - response ok");
+        console.log(JSON.stringify(data));
+    }).catch(function(err) {
+        console.log("err happened", err);
+    });
+
+    for (var i = 0; i < 100; i++) {
+        console.log("Waiting " + i);
+    }
+}
+
+
 function useGetJson() {
     debugger;
 

@@ -20,7 +20,7 @@
             <div class="demoMenu">
             <div id="status">Please choose:</div>
 
-            <a href="#" onclick="javascript:loadPage('demos/referencing.html', this, false);">Referencing, Executing</a>            
+            <a href="javascript:loadPage('demos/referencing.html', this, true);">Referencing, Executing</a>            
             <a href="#" onclick="javascript:loadPage('demos/logging.html', this, true);">Debugging & Logging</a>
             <a href="#" onclick="javascript:loadPage('demos/variables.html', this, true);">Variables</a>
             <a href="#" onclick="javascript:loadPage('demos/dates.html', this, true);">Working with Dates</a>

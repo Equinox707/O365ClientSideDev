@@ -21,7 +21,7 @@ function toggle() {
 function changeColour() {
     debugger;
 
-    $("#colourful").removeClass("divYellow").addClass("divRed");
+    $("#divColourful").removeClass("divYellow").addClass("divRed");
 }
 
 function addStyle() {

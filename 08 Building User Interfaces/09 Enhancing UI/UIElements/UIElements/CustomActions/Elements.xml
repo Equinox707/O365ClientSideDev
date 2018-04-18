@@ -31,7 +31,7 @@
     Sequence="1001"
     Rights="DeleteListItems"
     Description="User SharePoint Notifications">
-    <UrlAction Url="~site/_layouts/15/DeployCustomActions/CustomActionsTarget.aspx"/>
+    <UrlAction Url="~site/_layouts/15/UIElements/CustomActionsTarget.aspx"/>
   </CustomAction>
 
   <CustomAction Id="Integrations.CustomActions.JavaScript"
@@ -45,18 +45,6 @@
     <UrlAction Url="javascript:void(console.log('Actions triggerd from JavaScript'));"/>
   </CustomAction>
 
-  <CustomAction Id="Integrations.CustomActions.JavaScriptExternal"
-  Title="Trigger JS based external Action"
-  ImageUrl="/_layouts/images/actionssettings.gif"
-  GroupId="SiteActions"
-  Location="Microsoft.SharePoint.StandardMenu"
-  Sequence="1002"
-  Rights="DeleteListItems"
-  Description="Triggers some external JavaScript"
-  ScriptSrc="~site/_layouts/15/DeployCustomActions/customaction.js">
-    <UrlAction Url="javascript:triggerFromCustomAction();"/>
-  </CustomAction>
-
   <!--Edit Control Block akn Document Menu-->
   <CustomAction Id="Integrations.CopyTo"
 		RegistrationType="List"
@@ -64,7 +52,7 @@
 		Location="EditControlBlock"
 		Sequence="300"
 		Title="Copy To Destination">
-    <UrlAction Url="~site/_layouts/15/DeployCustomActions/CustomActionsTarget.aspx?ItemId={ItemId}&amp;ListId={ListId}"/>
+    <UrlAction Url="~site/_layouts/15/UIElements/CustomActionsTarget.aspx?ItemId={ItemId}&amp;ListId={ListId}"/>
   </CustomAction>
   
   <!--Site Settings-->
@@ -81,7 +69,7 @@
 		Location="Microsoft.SharePoint.SiteSettings"
 		Sequence="10"
 		Title="Enable Creator-Owner-Permissions" >
-    <UrlAction Url="~site/_layouts/15/DeployCustomActions/CustomActionsTarget.aspx" />
+    <UrlAction Url="~site/_layouts/15/UIElements/CustomActionsTarget.aspx" />
   </CustomAction>
   
   <!--List Settings-->
@@ -91,7 +79,7 @@
 		Location="Microsoft.SharePoint.ListEdit"
 		Sequence="10"
 		Title="Allowed File Types" >
-    <UrlAction Url="~site/_layouts/15/DeployCustomActions/CustomActionsTarget.aspx?ListId={ListId}" />
+    <UrlAction Url="~site/_layouts/15/UIElements/CustomActionsTarget.aspx?ListId={ListId}" />
   </CustomAction>
   <!--Notification-->
   <CustomAction
@@ -114,7 +102,7 @@
       <CommandUIHandlers>
         <CommandUIHandler
           Command="Contoso.Notification"
-          CommandAction="javascript:SP.UI.Notify.addNotification('Hello World!', true);" />
+          CommandAction="javascript:SP.UI.Notify.addNotification('Hello World!', false);" />
       </CommandUIHandlers>
     </CommandUIExtension>
   </CustomAction>

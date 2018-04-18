@@ -15,7 +15,7 @@ namespace DeployCustomActions.Layouts.DeployCustomActions
 
                 SPWeb web = SPContext.Current.Web;
                 SPList list = web.Lists[listid];
-                SPListItem item = list.Items[itemid];
+                SPListItem item = list.GetItemById(itemid);
             }
         }
     }

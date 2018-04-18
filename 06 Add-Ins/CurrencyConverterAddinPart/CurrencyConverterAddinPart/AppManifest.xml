@@ -17,4 +17,7 @@
   <AppPermissionRequests>
     <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web/list" Right="Write" />
   </AppPermissionRequests>
+  <RemoteEndpoints>
+    <RemoteEndpoint Url="http://data.fixer.io/api/latest" />
+  </RemoteEndpoints>
 </App>

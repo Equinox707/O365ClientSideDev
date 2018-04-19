@@ -8909,11 +8909,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Classes\\O365ClientSideDevV2\\09 Consuming Office 365 Services\\APIandGraphServices\\src\\SimpleAngular\\GraphServices.csproj",
+      "projectUniqueName": "D:\\Classes\\O365ClientSideDevV2\\09 Consuming Office 365 Services\\APIandGraphServices\\src\\SimpleAngular\\GraphServices.csproj",
       "projectName": "Vouchers",
-      "projectPath": "d:\\Classes\\O365ClientSideDevV2\\09 Consuming Office 365 Services\\APIandGraphServices\\src\\SimpleAngular\\GraphServices.csproj",
+      "projectPath": "D:\\Classes\\O365ClientSideDevV2\\09 Consuming Office 365 Services\\APIandGraphServices\\src\\SimpleAngular\\GraphServices.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "d:\\Classes\\O365ClientSideDevV2\\09 Consuming Office 365 Services\\APIandGraphServices\\src\\SimpleAngular\\obj\\",
+      "outputPath": "D:\\Classes\\O365ClientSideDevV2\\09 Consuming Office 365 Services\\APIandGraphServices\\src\\SimpleAngular\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

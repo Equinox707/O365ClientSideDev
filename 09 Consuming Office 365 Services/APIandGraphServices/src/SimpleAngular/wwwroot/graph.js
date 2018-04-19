@@ -1,5 +1,4 @@
-﻿//https://developer.microsoft.com/en-us/graph/docs/overview/overview
-var authContext = null;
+﻿var authContext = null;
 var config = null;
 
 $(document).ready(function () {

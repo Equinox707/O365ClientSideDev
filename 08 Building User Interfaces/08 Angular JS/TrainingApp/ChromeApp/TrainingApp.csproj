@@ -55,8 +55,8 @@
       <SharePointProjectItemId>{b2dc1dfe-a3b4-4922-aabc-d86b12256fe7}</SharePointProjectItemId>
     </None>
     <Content Include="Pages\Help.html" />
-    <Content Include="Pages\views\details.html" />
-    <Content Include="Pages\views\list.html" />
+    <Content Include="Pages\views\presentations.html" />
+    <Content Include="Pages\views\workshops.html" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular-sanitize.min.js" />
     <Content Include="Scripts\angular.js" />

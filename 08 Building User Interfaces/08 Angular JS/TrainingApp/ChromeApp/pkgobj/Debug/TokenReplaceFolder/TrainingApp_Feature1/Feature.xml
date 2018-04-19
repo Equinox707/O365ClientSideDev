@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" Description="SharePoint App Feature" Id="e8c33550-4b90-4754-b1cd-c31064e60d09" Scope="Web" Title="ChromeApp Feature1" Version="1.0.0.2">
+  <ElementManifests>
+    <ElementManifest Location="Pages\Elements.xml" />
+    <ElementFile Location="Pages\Default.aspx" />
+    <ElementFile Location="Pages\Help.html" />
+    <ElementFile Location="Pages\views\workshops.html" />
+    <ElementFile Location="Pages\views\presentations.html" />
+    <ElementManifest Location="Scripts\Elements.xml" />
+    <ElementFile Location="Scripts\App.js" />
+    <ElementFile Location="Scripts\sp.ui.controls.js" />
+    <ElementFile Location="Scripts\angular.js" />
+    <ElementFile Location="Scripts\angular-route.min.js" />
+    <ElementFile Location="Scripts\bootstrap.css" />
+    <ElementFile Location="Scripts\bootstrap.js" />
+    <ElementFile Location="Scripts\jquery.min.js" />
+    <ElementFile Location="Scripts\angular-sanitize.min.js" />
+    <ElementManifest Location="Content\Elements.xml" />
+    <ElementFile Location="Content\App.css" />
+    <ElementManifest Location="Images\Elements.xml" />
+    <ElementFile Location="Images\AppIcon.png" />
+    <ElementFile Location="Images\science.png" />
+  </ElementManifests>
+  <UpgradeActions>
+    <VersionRange>
+      <ApplyElementManifests>
+        <ElementManifest Location="Pages\Elements.xml" />
+        <ElementManifest Location="Scripts\Elements.xml" />
+        <ElementManifest Location="Content\Elements.xml" />
+        <ElementManifest Location="Images\Elements.xml" />
+      </ApplyElementManifests>
+    </VersionRange>
+  </UpgradeActions>
+</Feature>

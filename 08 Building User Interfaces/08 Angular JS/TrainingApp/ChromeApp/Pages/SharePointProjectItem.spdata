@@ -4,7 +4,7 @@
     <ProjectItemFile Source="Elements.xml" Target="Pages\" Type="ElementManifest" />
     <ProjectItemFile Source="Default.aspx" Target="Pages\" Type="ElementFile" />
     <ProjectItemFile Source="Help.html" Target="Pages\" Type="ElementFile" />
-    <ProjectItemFile Source="views\list.html" Target="Pages\views\" Type="ElementFile" />
-    <ProjectItemFile Source="views\details.html" Target="Pages\views\" Type="ElementFile" />
+    <ProjectItemFile Source="views\workshops.html" Target="Pages\views\" Type="ElementFile" />
+    <ProjectItemFile Source="views\presentations.html" Target="Pages\views\" Type="ElementFile" />
   </Files>
 </ProjectItem>

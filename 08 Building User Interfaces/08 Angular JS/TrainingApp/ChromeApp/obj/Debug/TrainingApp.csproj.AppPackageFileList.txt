@@ -1,0 +1,1 @@
+D:\Classes\O365ClientSideDevV2\08 Building User Interfaces\08 Angular JS\TrainingApp\ChromeApp\bin\Debug\app.publish\1.0.0.2\TrainingApp.app

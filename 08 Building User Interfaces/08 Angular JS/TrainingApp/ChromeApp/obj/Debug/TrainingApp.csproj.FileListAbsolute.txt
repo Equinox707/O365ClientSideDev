@@ -1,0 +1,5 @@
+D:\Classes\O365ClientSideDevV2\08 Building User Interfaces\08 Angular JS\TrainingApp\ChromeApp\bin\Debug\ChromeApp.pdb
+D:\Classes\O365ClientSideDevV2\08 Building User Interfaces\08 Angular JS\TrainingApp\ChromeApp\obj\Debug\TrainingApp.csprojResolveAssemblyReference.cache
+D:\Classes\O365ClientSideDevV2\08 Building User Interfaces\08 Angular JS\TrainingApp\ChromeApp\obj\Debug\TrainingApp.csproj.CoreCompileInputs.cache
+D:\Classes\O365ClientSideDevV2\08 Building User Interfaces\08 Angular JS\TrainingApp\ChromeApp\obj\Debug\ChromeApp.dll
+D:\Classes\O365ClientSideDevV2\08 Building User Interfaces\08 Angular JS\TrainingApp\ChromeApp\obj\Debug\ChromeApp.pdb

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.SharePoint.Client;
+using System;
+using System.IO;
 using System.Net;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.SharePoint.Client;
+using File = Microsoft.SharePoint.Client.File;
 
 namespace CSOM_Console
 {
@@ -16,30 +13,91 @@ namespace CSOM_Console
             var url = "http://sp2016/";
             var spourl = "https://integrationsonline.sharepoint.com/sites/training";
             var user = "alexander.pajer@integrations.at";
-            
-            var pwd = SecureStringExtensions.GetConsolePassword();
-                        
+            var skiponline = !true;
+
+
+            //Using Explicit Credential - use for SPO
+            if (skiponline)
+            {
+                using (var context = new ClientContext(spourl))
+                {
+                    var pwd = SecureStringExtensions.GetConsolePassword();
+                    context.Credentials = new SharePointOnlineCredentials(user, pwd.ToSecureString());
+                    context.Load(context.Web, w => w.Title);
+                    context.ExecuteQuery();
+                    Console.WriteLine("Your site title is: " + context.Web.Title);
+                }
+            }
 
             //Using Credential Cache - use for SP2013, SP2016
             using (var context = new ClientContext(url))
             {
+                
                 var credentials = CredentialCache.DefaultNetworkCredentials;
                 context.Credentials = credentials;
-                context.Load(context.Web, web => web.Title);
+
+                //Get Web Title
+                context.Load(context.Web, w => w.Title);
                 context.ExecuteQuery();
+
                 Console.WriteLine("Your site title is: " + context.Web.Title);
+
+                //Set Web Description
+                Web web = context.Web;
+                web.Description = "Changed by CSOM";
+                web.Update();
+
+                context.Load(context.Web, w => w.Description);
+                context.ExecuteQuery();
+
+                Console.WriteLine("Your site description is: " + context.Web.Description);
+                
+                //Get Lists in Web                
+                ListCollection lists = web.Lists;
+                
+                //context.Load(lists);
+                context.Load(lists, l=>l.Include(item=>item.Title, item =>item.Created));
+                context.ExecuteQuery();
+
+                foreach (List list in lists)
+                {
+                    Console.WriteLine(list.Title);
+                }
+
+                //Upload File
+                var sourceFilePath = @"d:\Sample.docx";
+                var targetUrl = "/Documents";
+                
+                var targetFileUrl = $"{targetUrl}/{Path.GetFileName(sourceFilePath)}";
+                using (var fs = new FileStream(sourceFilePath, FileMode.Open))
+                {
+                    File.SaveBinaryDirect(context, targetFileUrl, fs, true);
+                }
+
+                //Set document properties
+                var uploadedFile = context.Web.GetFileByServerRelativeUrl(targetFileUrl);
+                var listItem = uploadedFile.ListItemAllFields;
+                listItem["Information"] = "Uploaded by CSOM";
+                listItem.Update();
+                context.ExecuteQuery();
+                Console.WriteLine("Upload done");
+
+                //Create List - Traditional  
+                ListCreationInformation listInfo = new ListCreationInformation
+                {
+                    Title = "WithoutPnP",
+                    TemplateType = (int) ListTemplateType.GenericList
+                };
+                List cl = web.Lists.Add(listInfo);
+                cl.Update();
+                context.ExecuteQuery();
+
+                //Create List PnP - PnP
+                var pnpl = context.Web.CreateList(ListTemplateType.GenericList, "WithPnP", false);
+                Console.WriteLine("List created");
             }
 
-
-            //Using Explicit Credential - use for SPO
-            using (var context = new ClientContext(spourl))
-            {
-                context.Credentials = new SharePointOnlineCredentials(user, pwd.ToSecureString());
-                context.Load(context.Web, web => web.Title);
-                context.ExecuteQuery();
-                Console.WriteLine("Your site title is: " + context.Web.Title);
-            }
-
+            Console.ReadLine();
         }
     }
 }

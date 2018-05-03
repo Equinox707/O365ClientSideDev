@@ -14,10 +14,13 @@ namespace CSOM_Console
         static void Main(string[] args)
         {
             var url = "http://sp2016/";
-            var user = "administrator@spdom.local";
-            var pwd = "Pa$$w0rd";
+            var spourl = "https://integrationsonline.sharepoint.com/sites/training";
+            var user = "alexander.pajer@integrations.at";
+            
+            var pwd = SecureStringExtensions.GetConsolePassword();
+                        
 
-            //Using Credential Cache
+            //Using Credential Cache - use for SP2013, SP2016
             using (var context = new ClientContext(url))
             {
                 var credentials = CredentialCache.DefaultNetworkCredentials;
@@ -28,8 +31,8 @@ namespace CSOM_Console
             }
 
 
-            //Using Explicit Credential - taken from Console.ReadLine in Real World
-            using (var context = new ClientContext(url))
+            //Using Explicit Credential - use for SPO
+            using (var context = new ClientContext(spourl))
             {
                 context.Credentials = new SharePointOnlineCredentials(user, pwd.ToSecureString());
                 context.Load(context.Web, web => web.Title);

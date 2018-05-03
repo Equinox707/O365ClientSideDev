@@ -12,9 +12,8 @@
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css"/>
 
-    <!-- Add your JavaScript to the following file -->
-    <script type="text/javascript" src="../Scripts/App.js"></script>
-    <script src="../Scripts/Demo.js"></script>
+    <!-- Add your JavaScript to the following file -->    
+    <script src="../Scripts/Demo.js"></script>    
 </asp:Content>
 
 <%-- The markup in the following Content element will be placed in the TitleArea of the page --%>
@@ -37,16 +36,54 @@
                 <a href="javascript:stringFunctions()">String Functions</a>
             </li>
             <li>
-                <a href="javascript:useEnums()">Enums</a>
+                <a href="javascript:useVoidAny()">Void and Any</a>
             </li>
             <li>
-                <a href="javascript:useVoidAny()">Void and Any</a>
+                <a href="javascript:useTypings()">Use Typings</a>
+            </li>
+            <li>
+                <a href="javascript:useEnums()">Enums</a>
             </li>
             <li>
                 <a href="javascript:introArrays()">Arrays</a>
             </li>
             <li>
                 <a href="javascript:arrayHelpers()">Array Helpers</a>
+            </li>
+            <li>
+                <a href="javascript:maps()">Maps</a>
+            </li>
+            <li>
+                <a href="javascript:sets()">Sets</a>
+            </li>
+            <li>
+                <a href="javascript:restParams()">Rest Operator</a>
+            </li>
+            <li>
+                <a href="javascript:spreadOperator()">Spread Operator</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div>
+        <ul>
+            <li>
+                <a href="javascript:typedFunctions()">Typed Functions</a>
+            </li>
+            <li>
+                <a href="javascript:functionParameters()">Parameters</a>
+            </li>
+            <li>
+                <a href="javascript:returnValue()">Two Return Values</a>
+            </li>
+            <li>
+                <a href="javascript:arrowFunctions()">Arrow Functions</a>
+            </li>
+            <li>
+                <a href="javascript:functionOverloads()">Function Overloads</a>
+            </li>
+            <li>
+                <a href="javascript:generatorFunction()">Generator Funtions</a>
             </li>
         </ul>
     </div>
@@ -100,32 +137,7 @@
                 <a href="javascript:interfacesObjectLiterals()">Object Literals</a>
             </li>
         </ul>
-    </div>
-    <div>
-        <ul>
-            <li>
-                <a href="javascript:interfacesFunctions()">Interfaces and Functions</a>
-            </li>
-            <li>
-                <a href="javascript:typedFunctions()">Typed Functions</a>
-            </li>
-            <li>
-                <a href="javascript:functionParameters()">Parameters</a>
-            </li>
-            <li>
-                <a href="javascript:arrowFunctions()">Arrow Functions</a>
-            </li>
-            <li>
-                <a href="javascript:genericsBasics()">Generic Basics</a>
-            </li>
-            <li>
-                <a href="javascript:genericClassesInterfaces()">Generic Classes & Interfaces</a>
-            </li>
-            <li>
-                <a href="javascript:genericConstraints()">Generic Constraints</a>
-            </li>
-        </ul>
-    </div>
+    </div>    
     <div>
         <ul>
             <li>

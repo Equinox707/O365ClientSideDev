@@ -24,10 +24,12 @@ function getQueryStringParameter(paramToRetrieve) {
 function usingRequestExecutorREST() {
     try {
         var appweburl = decodeURIComponent(getQueryStringParameter("SPAppWebUrl"));
+        var qry = appweburl + "/_api/web/lists/getbytitle('AppWebNews')/items";
+
         var executor = new SP.RequestExecutor(appweburl);
         executor.executeAsync(
         {
-            url: appweburl + "/_api/web/lists/getbytitle('AppWebNews')/items",
+            url: qry,
             method: "GET",
             headers: { "Accept": "application/json;odata=verbose" },
             success: function (data) {
@@ -85,7 +87,7 @@ function usingRequestExecutorCSOM() {
 
 function consumingExternalData() {
     $.ajax({
-        url: "http://api.fixer.io/latest?symbols=THB",
+        url: "https://api.fixer.io/latest?symbols=THB?access_key=6c36c303e33169dd7102897259fc93be",
         cache: false
     }).done(function (data) {
         var p = 1000;

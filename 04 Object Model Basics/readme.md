@@ -8,11 +8,11 @@ C# CSOM:
 
 https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.aspx
 
-## PnP Core 
+## PnP Sites Core 
 
 https://github.com/SharePoint/PnP-Sites-Core
 
-## PnP Core Documentation
+## PnP Sites Core Documentation
 
 https://github.com/SharePoint/PnP-Sites-Core/tree/master/Core
 

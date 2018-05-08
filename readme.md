@@ -1,3 +1,7 @@
+# Office 365 Dev Tenant
+
+[Setup & Register Office 365 Dev Tenant](https://portal.microsoftonline.com/Signup/MainSignUp.aspx?OfferId=6881A1CB-F4EB-4db3-9F18-388898DAF510&DL=DEVELOPERPACK)
+
 # Github Essentials
 
 Init Git: `git init`

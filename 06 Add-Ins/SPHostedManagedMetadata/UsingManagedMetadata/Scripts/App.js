@@ -15,6 +15,8 @@ $(document).ready(function () {
     $('#getNewsJSOM').click(function () { getNewsJSOM(); });
 });
 
+// General Helpers
+
 function getQueryStringParameter(paramToRetrieve) {
     var params =
         document.URL.split("?")[1].split("&");
@@ -30,6 +32,104 @@ var errorHandlerREST = function (err) {
     console.log(err);
 };
 
+// Create Terms
+
+function createTerms() {
+    $('#report').html("Creating Terms ...");
+
+    session = SP.Taxonomy.TaxonomySession.getTaxonomySession(context);
+    termStore = session.getDefaultSiteCollectionTermStore();
+    context.load(session);
+    context.load(termStore);
+    context.executeQueryAsync(getTaxonomySession, failTaxonomySession);
+}
+
+function getTaxonomySession() {
+    // Create six GUIDs that we will need when we create a new group, term set, and associated terms
+    var guidGroupValue = new SP.Guid.newGuid();
+    var guidTermSetValue = new SP.Guid.newGuid();
+    var guidTerm1 = new SP.Guid.newGuid();
+    var guidTerm2 = new SP.Guid.newGuid();
+    var guidTerm3 = new SP.Guid.newGuid();
+    var guidTerm4 = new SP.Guid.newGuid();
+
+    var myGroup = termStore.createGroup("CustomTerms", guidGroupValue);
+    var myTermSet = myGroup.createTermSet("Privacy", guidTermSetValue, 1033);
+
+    myTermSet.createTerm("Top Secret", 1033, guidTerm1);
+    myTermSet.createTerm("Company Confidential", 1033, guidTerm2);
+    myTermSet.createTerm("Partners Only", 1033, guidTerm3);
+    myTermSet.createTerm("Public", 1033, guidTerm4);
+
+    groups = termStore.get_groups();
+    context.load(groups);
+    context.executeQueryAsync(onAddTerms, onFailAddTerms);
+
+}
+
+function onAddTerms() {
+    listGroups();
+}
+
+function onFailAddTerms(sender, args) {
+    $('#report').children().remove();
+    $('#report').append("Failed to add terms. Error: " + args.get_message());
+}
+
+function failTaxonomySession(sender, args) {
+    $('#report').children().remove();
+    $('#report').append("Failed to get session. Error: " + args.get_message());
+}
+
+//ListGroups
+
+function listGroups() {
+
+    $('#report').html("Listing Termgroups ...");
+    
+    session = SP.Taxonomy.TaxonomySession.getTaxonomySession(context);
+    termStore = session.getDefaultSiteCollectionTermStore();
+    context.load(session);
+    context.load(termStore);
+    context.executeQueryAsync(listTaxonomySession, failListTaxonomySession);
+}
+
+function listTaxonomySession() {
+    groups = termStore.get_groups();
+    context.load(groups);
+    context.executeQueryAsync(retrieveGroups, failRetrieveGroups);
+}
+
+function failListTaxonomySession(sender, args) {
+    $('#report').children().remove();
+    $('#report').append("Failed to get session. Error: " + args.get_message());
+}
+
+function retrieveGroups() {
+    $('#report').children().remove();
+
+    var groupEnum = groups.getEnumerator();
+
+    // For each group, we'll build a clickable div.
+    while (groupEnum.moveNext()) {
+        var currentGroup = groupEnum.get_current();
+        var groupName = document.createElement("div");
+        groupName.setAttribute("style", "float:none;cursor:pointer");
+        var groupID = currentGroup.get_id();
+        groupName.setAttribute("id", groupID);
+        groupName.setAttribute("onclick", "showTermSets('" + groupID + "');");
+        groupName.appendChild(document.createTextNode(currentGroup.get_name()));
+        $('#report').append(groupName);
+    }
+}
+
+function failRetrieveGroups(sender, args) {
+    $('#report').children().remove();
+    $('#report').append("Failed to retrieve groups. Error:" + args.get_message());
+}
+
+// Read Lists
+
 function getNewsREST() {
     var hostUrl = decodeURIComponent(getQueryStringParameter("SPHostUrl"));
     var appUrl = decodeURIComponent(getQueryStringParameter("SPAppWebUrl"));
@@ -40,7 +140,7 @@ function getNewsREST() {
         type: "GET",
         headers: { "Accept": "application/json;odata=verbose" },
         success: function (data) {
-            console.log(data.d.results);
+            console.log("REST date received from getNewsREST()", data.d.results);
         },
         error: errorHandlerREST
     });
@@ -81,38 +181,6 @@ function setTable(data) {
     $('#tblContactsBody tr').click(function (e) {
         console.info("fetching data item with id=" + e.currentTarget.id);
     });
-}
-
-function listGroups() {
-    session = SP.Taxonomy.TaxonomySession.getTaxonomySession(context);
-    termStore = session.getDefaultSiteCollectionTermStore();
-    context.load(session);
-    context.load(termStore);
-    context.executeQueryAsync(onListTaxonomySession, onFailListTaxonomySession);
-}
-
-function onListTaxonomySession() {
-    groups = termStore.get_groups();
-    context.load(groups);
-    context.executeQueryAsync(onRetrieveGroups, onFailRetrieveGroups);
-}
-
-function onRetrieveGroups() {
-    $('#report').children().remove();
-    
-    var groupEnum = groups.getEnumerator();
-
-    // For each group, we'll build a clickable div.
-    while (groupEnum.moveNext()) {
-        var currentGroup = groupEnum.get_current();
-        var groupName = document.createElement("div");
-        groupName.setAttribute("style", "float:none;cursor:pointer");
-        var groupID = currentGroup.get_id();
-        groupName.setAttribute("id", groupID);
-        groupName.setAttribute("onclick", "showTermSets('"+ groupID + "');");
-        groupName.appendChild(document.createTextNode(currentGroup.get_name()));
-        $('#report').append(groupName);
-    }
 }
 
 function showTermSets(groupID) {
@@ -260,63 +328,3 @@ function showTerms(event, groupID, termSetID) {
         }
     }
 }
-
-// Runs when the executeQueryAsync method in the onListTaxonomySession function has failed.
-// In this case, clear the report area in the page and tell the user what went wrong.
-function onFailRetrieveGroups(sender, args) {
-    $('#report').children().remove();
-    $('#report').append("Failed to retrieve groups. Error:" + args.get_message());
-}
-
-// Runs when the executeQueryAsync method in the listGroups function has failed.
-// In this case, clear the report area in the page and tell the user what went wrong.
-function onFailListTaxonomySession(sender, args) {
-    $('#report').children().remove();
-    $('#report').append("Failed to get session. Error: " + args.get_message());
-}
-
-function createTerms() {
-    session = SP.Taxonomy.TaxonomySession.getTaxonomySession(context);
-    termStore = session.getDefaultSiteCollectionTermStore();
-    context.load(session);
-    context.load(termStore);
-    context.executeQueryAsync(onGetTaxonomySession, onFailTaxonomySession);
-}
-
-function onGetTaxonomySession() {
-    // Create six GUIDs that we will need when we create a new group, term set, and associated terms
-    var guidGroupValue = new SP.Guid.newGuid();
-    var guidTermSetValue = new SP.Guid.newGuid();
-    var guidTerm1 = new SP.Guid.newGuid();
-    var guidTerm2 = new SP.Guid.newGuid();
-    var guidTerm3 = new SP.Guid.newGuid();
-    var guidTerm4 = new SP.Guid.newGuid();
-
-    var myGroup = termStore.createGroup("CustomTerms", guidGroupValue);
-    var myTermSet = myGroup.createTermSet("Privacy", guidTermSetValue, 1033);
-
-    myTermSet.createTerm("Top Secret", 1033, guidTerm1);
-    myTermSet.createTerm("Company Confidential", 1033, guidTerm2);
-    myTermSet.createTerm("Partners Only", 1033, guidTerm3);
-    myTermSet.createTerm("Public", 1033, guidTerm4);
-   
-    groups = termStore.get_groups();
-    context.load(groups);
-    context.executeQueryAsync(onAddTerms, onFailAddTerms);
-    
-}
-
-function onAddTerms() {
-    listGroups();
-}
-
-function onFailAddTerms(sender, args) {
-    $('#report').children().remove();
-    $('#report').append("Failed to add terms. Error: " + args.get_message());
-}
-
-function onFailTaxonomySession(sender, args) {
-    $('#report').children().remove();
-    $('#report').append("Failed to get session. Error: " + args.get_message());
-}
-

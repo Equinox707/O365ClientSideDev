@@ -22,12 +22,12 @@
 
 <%-- The markup and script in the following Content element will be placed in the <body> of the page --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
-    <div>
-        
-        <input id="listExisting" type="button" value="List Managed Metadata" />
+    <div>        
         <input id="createTerms" type="button" value="Create Privacy Terms" />
+        <input id="listExisting" type="button" value="List Managed Metadata" />        
         <input id="getNewsREST" type="button" value="Get News REST" />
         <input id="getNewsJSOM" type="button" value="Get News JSOM" />
+        <hr />
         <div id="report"></div>
     </div>
 

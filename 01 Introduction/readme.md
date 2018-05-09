@@ -38,3 +38,9 @@ https://technet.microsoft.com/en-ca/library/jj151815.aspx
 ## Cmdlet references for Office 365 services
 
 https://docs.microsoft.com/en-us/office365/enterprise/powershell/cmdlet-references-for-office-365-services
+
+# Readings
+
+[Hub Sites](https://docs.microsoft.com/en-us/sharepoint/dev/features/hub-site/hub-site-overview)
+
+[Site Theming](https://docs.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-theming/sharepoint-site-theming-overview)

@@ -1,15 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1FE7E1F9-F02B-41B9-BC47-FC2519031977}</ProjectGuid>
+    <ProjectGuid>{38F0DABF-687A-4A99-9D13-F33F5E3CBD6B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProviderApp</RootNamespace>
-    <AssemblyName>ProviderApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>ProviderHostedAddIn</RootNamespace>
+    <AssemblyName>ProviderHostedAddIn</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetOfficeVersion>16.0</TargetOfficeVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -17,12 +16,12 @@
     <MinimumOfficeToolsVersion>14.0</MinimumOfficeToolsVersion>
     <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
     <ProjectMode>SharePointApp</ProjectMode>
-    <AppFeaturePartId>{4bb68a01-ea3c-4c6e-900b-7e178ef24801}</AppFeaturePartId>
-    <WspPartId>{beb2779d-710b-4b2a-b884-50c794258d77}</WspPartId>
-    <WorkflowPartId>{6c6a292c-a35a-4a6f-a700-7cef0d6e9193}</WorkflowPartId>
-    <CspkgPartId>{3b3303a0-e996-462a-9cfb-affcfdb6d7e8}</CspkgPartId>
-    <SqlPackagePartId>{2dd2624b-f93c-44b8-9337-ac080208f2e9}</SqlPackagePartId>
-    <ActivePublishProfile>Folder</ActivePublishProfile>
+    <AppFeaturePartId>{2f6bae1f-1823-42f4-8f6b-941b51c0b12e}</AppFeaturePartId>
+    <WspPartId>{57aeab1b-0fac-4f9f-bda9-f6a19618c20a}</WspPartId>
+    <WorkflowPartId>{eb196545-74a0-4970-badb-4eddd2b22799}</WorkflowPartId>
+    <CspkgPartId>{218efa59-a9ee-48eb-aba9-6d6c9c13dee8}</CspkgPartId>
+    <SqlPackagePartId>{c5217f78-4eb6-4a9b-bb11-d021d2d2eab3}</SqlPackagePartId>
+    <ActivePublishProfile>FileProfile</ActivePublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,13 +53,13 @@
     </AppManifestFile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProviderAppWeb\ProviderAppWeb.csproj">
-      <Project>{A00567C6-43C0-47B2-94A5-465268A81B3E}</Project>
-      <Name>ProviderAppWeb</Name>
+    <ProjectReference Include="..\ProviderHostedAddInWeb\ProviderHostedAddInWeb.csproj">
+      <Project>{78AEBA70-68F3-4ED7-B955-D2AAD93D4502}</Project>
+      <Name>ProviderHostedAddInWeb</Name>
       <Private>True</Private>
       <RoleType>Web</RoleType>
       <OutputItemType>SharePointWebProjectOutput</OutputItemType>
-      <RoleName>ProviderAppWeb</RoleName>
+      <RoleName>ProviderHostedAddInWeb</RoleName>
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>

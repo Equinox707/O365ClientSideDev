@@ -7,7 +7,7 @@ using System.Security.Principal;
 using System.Web;
 using System.Web.Configuration;
 
-namespace ProviderAppWeb
+namespace ProviderHostedAddInWeb
 {
     /// <summary>
     /// Encapsulates all the information from SharePoint.

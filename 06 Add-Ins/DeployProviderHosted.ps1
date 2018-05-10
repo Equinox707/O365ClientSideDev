@@ -3,34 +3,37 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
     Add-PSSnapin "Microsoft.SharePoint.PowerShell"
 }
 
-$clientID = "59651c55-335e-4a44-b636-d9540e2ae4a8"
-$appFile = "D:\Classes\O365ClientSideDev\06 Add-Ins\ProviderHostedAddInOnPrem\ProviderApp\ProviderApp\bin\Debug\app.publish\1.0.0.4\ProviderApp.app"
-$siteCollection = "http://sp2016"
-$appName = "ProviderApp"
+# Make sure you have created the SecurityTokenIssuer using CreateSecurityTokenIssuer.ps1
+# Run only one or delete bevore creating
 
-$web = Get-SPWeb -Identity $siteCollection
+$site = "http://sp2016"
+$appName = "ProviderHostedAddIn"
+$issuerId = "2ffbee9b-3a1f-4d7e-b673-866ffa549d27"
+$appFile = "D:\Classes\O365ClientSideDev\06 Add-Ins\ProviderHostedAddIn\ProviderHostedAddIn\bin\Debug\app.publish\1.0.0.0\ProviderHostedAddIn.app"
 
+$web = Get-SPWeb -Identity $site
 $realm = Get-SPAuthenticationRealm -ServiceContext $web.Site;
-$appIdentifier = $clientID  + '@' + $realm;
+$appIdentifier = $issuerId  + '@' + $realm;
 
-#Register the App with given ClientId
-
+# Register the App with given IssuerId /ClientId
 $appPrincipal = Register-SPAppPrincipal -DisplayName $appName -NameIdentifier $appIdentifier -Site $web 
 
-$app = Import-SPAppPackage -Path $appFile -Site $siteCollection -Source ObjectModel -Confirm:$false 	
+$app = Import-SPAppPackage -Path $appFile -Site $site -Source ObjectModel -Confirm:$false 	
 
-#Install the App
-Install-SPApp -Web $siteCollection -Identity $app
+# Install the App
+Install-SPApp -Web $site -Identity $app
 
 Set-SPAppPrincipalPermission -Site $web -AppPrincipal $appPrincipal -Scope SiteCollection -Right FullControl
+
+Write-Host "App published"
+
 exit
 
-#List
-
+# List App Principals
 $Url = "http://sp2016"
 $web = Get-SPWeb -Identity $Url
 $realm = Get-SPAuthenticationRealm -ServiceContext $web.Site;
-$appIdentifier = $clientID  + '@' + $realm;
+$appIdentifier = $issuerId  + '@' + $realm;
 Get-SPAppPrincipal -NameIdentifier $appIdentifier -Site $Url
 
 exit

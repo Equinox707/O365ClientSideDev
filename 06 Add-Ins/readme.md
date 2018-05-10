@@ -8,12 +8,12 @@ https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/url-strings-and-token
 
 #### Publish Add-In
 
-![Publish](/_Images/publish.png)
+![Publish](_Images/publish.png)
 
 #### Deploy Provider Hosted App Web
 
-![Publish](/_Images/iis.png)
+![Publish](_Images/iis.png)
 
 #### Execute Script - DeployProviderHosted.ps1
 
-![Script](/_Images/script.png)
+![Script](_Images/script.png)

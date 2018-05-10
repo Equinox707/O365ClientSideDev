@@ -4,8 +4,8 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
 }
 
 $clientID = "59651c55-335e-4a44-b636-d9540e2ae4a8"
-$appFile = "D:\BRZ\ProviderApp\ProviderApp\bin\Debug\app.publish\1.0.0.4\ProviderApp.app"
-$siteCollection = "http://SP2016"
+$appFile = "D:\Classes\O365ClientSideDev\06 Add-Ins\ProviderHostedAddInOnPrem\ProviderApp\ProviderApp\bin\Debug\app.publish\1.0.0.4\ProviderApp.app"
+$siteCollection = "http://sp2016"
 $appName = "ProviderApp"
 
 $web = Get-SPWeb -Identity $siteCollection
@@ -14,6 +14,7 @@ $realm = Get-SPAuthenticationRealm -ServiceContext $web.Site;
 $appIdentifier = $clientID  + '@' + $realm;
 
 #Register the App with given ClientId
+
 $appPrincipal = Register-SPAppPrincipal -DisplayName $appName -NameIdentifier $appIdentifier -Site $web 
 
 $app = Import-SPAppPackage -Path $appFile -Site $siteCollection -Source ObjectModel -Confirm:$false 	

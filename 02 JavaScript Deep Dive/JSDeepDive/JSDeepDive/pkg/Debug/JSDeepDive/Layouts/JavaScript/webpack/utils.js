@@ -4,10 +4,6 @@ export class Utils {
     log(msg) {
         console.log(msg);
     }
-
-    writeDate() {
-        //return moment(new Date()).format("LTS");
-    }
     
     getUsers() {
         var url = "http://sp2016/_api/Web/lists/getbytitle('User Information List')/items";

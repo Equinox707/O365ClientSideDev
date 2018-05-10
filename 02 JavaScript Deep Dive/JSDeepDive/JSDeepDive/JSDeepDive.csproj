@@ -97,6 +97,7 @@
       <DependentUpon>Feature1.feature</DependentUpon>
     </Content>
     <Content Include="gulpfile.js" />
+    <Content Include="Layouts\JavaScript\bundle\bundle.js" />
     <Content Include="Layouts\JavaScript\bundle\es5-bundle.js" />
     <Content Include="Layouts\JavaScript\bundle\webpack-bundle.js" />
     <Content Include="Layouts\JavaScript\css\demo.css" />

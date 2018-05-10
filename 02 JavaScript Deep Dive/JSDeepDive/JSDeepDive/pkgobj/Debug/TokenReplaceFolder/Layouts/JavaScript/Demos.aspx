@@ -10,8 +10,8 @@
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <script src="lib/jquery/jquery-3.1.1.min.js"></script>
     <script src="lib/moment/moment.js"></script>
-   <%-- <script src="demos.aspx.js"></script>   --%>
-    <script src="bundle/webpack-bundle.js"></script>
+    <script src="demos.aspx.js"></script>   
+    <%--<script src="bundle/webpack-bundle.js"></script>--%>
     <SharePoint:CssRegistration runat="server" ID="CssRegistration1" Name="/_layouts/15/JavaScript/css/demo.css" After="corev15.css"/>  
 </asp:Content>
 
@@ -20,7 +20,7 @@
             <div class="demoMenu">
             <div id="status">Please choose:</div>
 
-            <a href="#" onclick="javascript:loadPage('demos/referencing.html', this, false);">Referencing, Executing</a>            
+            <a href="javascript:loadPage('demos/referencing.html', this, true);">Referencing, Executing</a>            
             <a href="#" onclick="javascript:loadPage('demos/logging.html', this, true);">Debugging & Logging</a>
             <a href="#" onclick="javascript:loadPage('demos/variables.html', this, true);">Variables</a>
             <a href="#" onclick="javascript:loadPage('demos/dates.html', this, true);">Working with Dates</a>

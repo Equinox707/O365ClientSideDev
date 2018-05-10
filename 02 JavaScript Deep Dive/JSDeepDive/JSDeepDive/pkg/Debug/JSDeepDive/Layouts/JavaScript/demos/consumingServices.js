@@ -15,5 +15,5 @@ function consumeService() {
         }
     });
 
-    console.log("ajax executed")
+    console.log("ajax executed");
 }

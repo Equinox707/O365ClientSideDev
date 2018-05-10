@@ -5,14 +5,12 @@ module.exports = {
     entry: {
         app: './app.js'
     },
-    resolve: {
-        extensions: ['.js']
-    },
+    mode: 'development',
     output: {
-        filename: './Layouts/JavaScript/bundle/webpack-bundle.js'
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, "./Layouts/JavaScript/bundle/")
     },
     devtool: 'eval-source-map',
-
     module: {
         rules: [
             {

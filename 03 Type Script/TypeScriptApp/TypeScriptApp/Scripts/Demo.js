@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -16,29 +15,23 @@ var __rest = (this && this.__rest) || function (s, e) {
             t[p[i]] = s[p[i]];
     return t;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 function basicVariables() {
     debugger;
-    var myname = "alex";
+    var myname = "alexander";
     //Numbers
     var age;
     var weight = 83.12;
     var dogWeight = 25.4;
-    // dogWeight = "heavy"
     var rand = Math.random();
     var numbers = [];
-    var myNumArray = new Array();
     numbers[0] = 1;
-    // numbers.push("two"); // compile-time error
-    let notSure = 4;
-    notSure = "maybe a string instead";
-    notSure = false; // okay, definitely a boolean
+    //numbers.push("two"); // compile-time error
     var isCustomer = false;
     var finished = false;
     //strings
     var dogName = "Giro";
     var otherDogName = "Soi";
-    var myString = "ten";
+    var x = 10;
     var strings = ["hubert", "Sam"];
     strings.push("Hans");
     //strings[1] = 1337; // compile time error
@@ -47,8 +40,8 @@ function basicVariables() {
         throw new Error(message);
     }
     // Not much else we can assign to these variables!
-    var u = undefined;
-    var n = null;
+    let u = undefined;
+    let n = null;
 }
 function useLetConst() {
     debugger;
@@ -61,8 +54,6 @@ function useLetConst() {
     console.log(index); // 0
     const pi = 3.14;
     //pi = 2;
-    const person = { name: "john", age: 22 };
-    person.name = "franz";
 }
 function stringFunctions() {
     debugger;
@@ -77,72 +68,33 @@ function stringFunctions() {
     //startswith
     var str = "To be, or not to be, that is the question.";
     console.log(str.startsWith("To be")); // true
-    console.log(str.endsWith("question.")); // true       
-}
-function useVoidAny() {
-    debugger;
-    function handleClick() {
-        var g = "I don't return anything.";
-        console.log(g);
-    }
-    //let nonsens: void = 10; //Conversion error
-    let nonsens = undefined;
-    let likeadelegate = handleClick();
-    //execute it
-    likeadelegate;
+    console.log(str.endsWith("question.")); // true
 }
 function useEnums() {
     debugger;
-    let Happyness;
-    (function (Happyness) {
-        Happyness[Happyness["happy"] = 2] = "happy";
-        Happyness[Happyness["unhappy"] = 4] = "unhappy";
-        Happyness[Happyness["ok"] = 6] = "ok";
-    })(Happyness || (Happyness = {}));
-    let isHappy = Happyness.happy;
-    let Sex;
-    (function (Sex) {
-        Sex["male"] = "m";
-        Sex["female"] = "f";
-        Sex["undefined"] = "u";
-    })(Sex || (Sex = {}));
     let VoucherStatus;
     (function (VoucherStatus) {
         VoucherStatus[VoucherStatus["draft"] = 0] = "draft";
         VoucherStatus[VoucherStatus["complete"] = 1] = "complete";
         VoucherStatus[VoucherStatus["pending"] = 2] = "pending";
     })(VoucherStatus || (VoucherStatus = {}));
-    var status;
-    status = VoucherStatus.draft;
-    status = VoucherStatus.complete;
-    //status = VoucherStatus.unfinished; // compile-time error
-    //status = "on the way"; // compile-time error
-    if (status === VoucherStatus.complete) {
+    var n;
+    n = VoucherStatus.draft;
+    n = VoucherStatus.complete;
+    //n = VoucherStatus.unfinished; // compile-time error
+    //n = "on the way"; // compile-time error
+    if (n === VoucherStatus.complete) {
     }
-    class Voucher {
-    }
-    function handleVoucher(v, status) {
-        switch (status) {
-            case VoucherStatus.complete:
-                console.log(`got voucher ${v}: will pay`);
-                break;
-            case VoucherStatus.draft:
-                console.log(`got voucher ${v}: will save to O365`);
-                break;
-            case VoucherStatus.pending:
-                console.log(`got voucher ${v}: will call the accountant`);
-                break;
-            default:
-                console.log("...");
-                break;
-        }
-    }
-    handleVoucher({ ID: 1, Text: "Media Markt", Amount: 22, Date: new Date() }, status);
 }
-function useTypings() {
-    //using jQuery
-    let myArray = ["Angular", "React", "SPFx"];
-    console.log("myArray is an Array: ", $.isArray(myArray));
+function useVoidAny() {
+    debugger;
+    function handleClick() {
+        console.log("I don't return anything.");
+    }
+    let likeadelegate = handleClick();
+    let notSure = 4;
+    notSure = "maybe a string instead";
+    notSure = false; // okay, definitely a boolean
 }
 function introArrays() {
     debugger;
@@ -161,10 +113,11 @@ function introArrays() {
     for (let i of list) {
         console.log(i); // "4", "5", "6"
     }
+    let source = [8, 4, 100, -5, 20];
     // array destructuring
-    let arrNbr = [8, 4, 100, -5, 20];
-    let [first, second, third] = arrNbr;
-    console.log(third, second, first); // output: 100, 4, 8
+    let [first, second, third] = source;
+    // output: 100, 4, 8
+    console.log(third, second, first);
     let myArray = [1, ["hello"], true], [a, b, c] = myArray;
     // output: 1, ['hello']
     console.log(a, b);
@@ -175,231 +128,39 @@ function arrayHelpers() {
         { name: "apples", quantity: 2, price: 3, region: "europe" },
         { name: "bananas", quantity: 0, price: 5, region: "caribean" },
         { name: "cherries", quantity: 5, price: 8, region: "europe" }
-    ]; //-> Json Objects from REST call
+    ];
     //remember ECMA Script 5 pattern
     var result = [];
     for (var i = 0; i < fruits.length; i++) {
         var item = fruits[i];
-        if (item.quantity < 5) {
+        if (item.quantity < 6) {
             result.push(item);
         }
     }
     console.log(`There areas ${result.length} items in the Array`);
     //forEach
-    fruits.forEach(function (fruit) {
+    fruits.forEach(fruit => {
         fruit.quantity++;
     });
-    fruits.forEach((item) => {
-        item.quantity++;
-    });
-    fruits.forEach(item => item.quantity++);
-    //find -> returns first item
-    var cherry = fruits.find(function (fruit) {
-        return fruit.name === "cherries";
-    });
+    //find
+    var cherry = fruits.find(fruit => fruit.name === "cherries");
     console.log(cherry);
-    //filter -> returns array
-    var cheap = fruits.filter(function (item) {
-        return item.price < 6;
-    });
+    //filter
+    //var cheap = fruits.filter((item) => { return item.price < 6 });
+    var cheap = fruits.filter(item => item.price < 6);
     console.log(cheap);
-    //map -> shape arr
-    var names = fruits.map(function (item) {
-        return item.name;
-    });
-    //reduce:  You want to find a cumulative or concatenated value based on elements across the array
-    var rockets = [
-        { country: "Russia", launches: 32 },
-        { country: "US", launches: 23 },
-        { country: "China", launches: 16 },
-        { country: "Europe(ESA)", launches: 7 },
-        { country: "India", launches: 4 },
-        { country: "Japan", launches: 3 }
-    ];
-    var launches = rockets.reduce(function (prevVal, elem) {
-        return prevVal + elem.launches;
-    }, 0);
-    launches = rockets.reduce((prevVal, elem) => prevVal + elem.launches, 0); //same as above
-    console.log("launche so far: ", launches);
+    //reduce
+    var fruitNames = fruits.reduce((prevArray, fruit) => {
+        prevArray.push({ Name: fruit.name, Price: fruit.price });
+        return prevArray;
+    }, []);
+    console.log(fruitNames);
     //splice
     var dogs = ["whippet", "galgo espanol", "magyar whistler", "magyar agar"];
     dogs.splice(2, 0, "chart polski");
-    console.log(dogs); //["whippet", "galgo espanol", "chart polski", "magyar whistler", "magyar agar"]
+    console.log(dogs);
     dogs.splice(3, 1);
-    console.log(dogs); //["whippet", "galgo espanol", "chart polski", "magyar agar"]
-}
-//-> C# Dictionary
-function maps() {
-    debugger;
-    var myMap = new Map();
-    var keyString = "a string";
-    var keyObj = {};
-    var keyFunc = function () {
-        console.log("function in map array");
-    };
-    // setting the values
-    myMap.set("stringContent", keyString);
-    myMap.set("objContent", keyObj);
-    myMap.set("functionContent", keyFunc());
-    console.log("Map size: " + myMap.size); // 3
-    // getting the values
-    myMap.get("stringContent"); // "value associated with 'stringContent'"
-    myMap.get("objContent");
-    myMap.get("functionContent");
-    myMap.delete("stringContent");
-    myMap.clear();
-}
-//-> Indexed Array ... Somehow Generic List
-function sets() {
-    debugger;
-    var mySet = new Set();
-    mySet.add(1);
-    mySet.add("some text");
-    var o = { a: 1, b: 2 };
-    mySet.add(o);
-    mySet.has(1); // true
-    mySet.has(3); // false, 3 has not been added to the set
-    mySet.has(Math.sqrt(25)); // true
-    mySet.has("Some Text".toLowerCase()); // true
-    mySet.has(o); // true
-    var size = mySet.size; // 4
-    mySet.delete(5); // removes 5 fro
-}
-function restParams() {
-    debugger;
-    function playLotto(name, ...bets) {
-        console.log(`${name} is playing the following lottery numbers: `);
-        bets.forEach((nbr) => console.log(nbr));
-    }
-    playLotto("Hannes", 3, 12, 45, 48);
-    playLotto("Hugo", 3, 12, 45, 48, 55, 22);
-    var shop = new Array();
-    shop.category = new Map();
-    shop.add = function (categoryName, ...products) {
-        var row = shop.category[categoryName];
-        if (row == undefined) {
-            shop.category.set(categoryName, new Array());
-        }
-        products.forEach(item => {
-            shop.category.get(categoryName).push(item);
-        });
-    };
-    shop.add("fruits", "apple");
-    shop.add("dairy", "milk", "cheese", "yoghurt");
-    shop.add("pastries", "donuts", "croissants");
-    shop.add("cleaning", "soap", "body lotion", "shampoo", "tooth brush");
-    console.log("There are the following products in the store", shop);
-}
-function spreadOperator() {
-    console.log(Math.max(3, 5, 1)); // 5
-    let arr = [3, 5, 1];
-    //console.log( Math.max(arr) ); // NaN
-    console.log(Math.max(...arr)); // 5 (spread turns array into a list of arguments)
-    let arr1 = [1, -2, 3, 90];
-    let arr2 = [8, 3, -8, 1];
-    console.log("Maximum is", Math.max(1, ...arr1, 2, ...arr2, 25)); // 90
-    //Sample from Above
-    function playLotto(name, ...bets) {
-        console.log(`${name} is playing the following lottery numbers: `);
-        bets.forEach((nbr) => console.log(nbr));
-    }
-    playLotto("Hannes", 3, 12, 45, 48);
-    let numbers = [3, 12, 45, 48];
-    //calling a function with ...rest param using ...spread
-    playLotto("Hannes", ...numbers);
-}
-function typedFunctions() {
-    debugger;
-    //C# delegate ... variable that contains a function
-    let addFunction = function (x, y) {
-        return x + y;
-    };
-    var result = addFunction(10, 20);
-    console.log(result);
-}
-function functionParameters() {
-    debugger;
-    //optional param
-    function buildName(firstName, lastName) {
-        if (lastName)
-            return firstName + " " + lastName;
-        else
-            return firstName;
-    }
-    console.log(buildName("Bob"));
-    console.log(buildName("Giro", "Galgohead"));
-    //default param
-    function getAddress(street, city = "Vienna") {
-        return `${street}, ${city}`;
-    }
-    console.log(getAddress("Neuwaldegger Straße"));
-    console.log(getAddress("Seestraße", "Idolsberg"));
-    //rest param
-    function buildFruitBucket(fruitType, ...fruits) {
-        console.log("The following " + fruitType + " are in the bucket " + fruits.join(", "));
-    }
-    buildFruitBucket("Beeren", "Himbeeren", "Brombeeren", "Goji Beeren");
-}
-function returnValue() {
-    function twoReturns() {
-        return ["abc", "cde"];
-    }
-    console.log("result of function with two returns: ", twoReturns());
-}
-function arrowFunctions() {
-    debugger;
-    var rectangleFunction = function (width, height) {
-        return width * height;
-    };
-    //Implemented as Lambda or "Arrow" Function
-    var rectangleFunctionArrow = (width, height) => height * width;
-    let result = rectangleFunctionArrow(10, 22);
-    console.log(result);
-}
-function functionOverloads() {
-    debugger;
-    let suits = ["hearts", "spades", "clubs", "diamonds"];
-    function pickCard(x) {
-        if (typeof x == "object") {
-            let pickedCard = Math.floor(Math.random() * x.length);
-            return pickedCard;
-        }
-        else if (typeof x == "number") {
-            let pickedSuit = Math.floor(x / 13);
-            return { suit: suits[pickedSuit], card: x % 13 };
-        }
-        else {
-            return null;
-        }
-    }
-    let myDeck = [{ suit: "diamonds", card: 2 }, { suit: "spades", card: 10 }, { suit: "hearts", card: 4 }];
-    let pickedCard1 = myDeck[pickCard(myDeck)];
-    console.log("card: " + pickedCard1.card + " of " + pickedCard1.suit);
-    let pickedCard2 = pickCard(15);
-    console.log("card: " + pickedCard2.card + " of " + pickedCard2.suit);
-}
-function generatorFunction() {
-    debugger;
-    function* getColors() {
-        //Code to be executed in between
-        yield "green";
-        //Code to be executed in between
-        yield "red";
-        //Code to be executed in between
-        yield "blue";
-    }
-    const colorGenerator = getColors();
-    debugger;
-    console.log(colorGenerator.next());
-    console.log(colorGenerator.next());
-    console.log(colorGenerator.next());
-    //practical usage many time together with for ... of
-    const arrColor = [];
-    let cols = getColors();
-    for (let col of Array.from(cols)) { //Array.from casts IterableIterator<string> to Array<string>
-        arrColor.push(col);
-    }
-    console.log(arrColor);
+    console.log(dogs);
 }
 function objectsBasics() {
     debugger;
@@ -458,6 +219,35 @@ function destructuring() {
     // Destructuring using REST Param
     var _a = { w: 1, x: 2, y: 3, z: 4 }, { w, x } = _a, remaining = __rest(_a, ["w", "x"]);
     console.log(w, x, remaining); // 1, 2, {y:3,z:4}
+}
+function restParams() {
+    debugger;
+    function playLotto(name, ...bets) {
+        console.log(`${name} is playing the following lottery numbers: `);
+        bets.forEach((nbr) => console.log(nbr));
+        bets.forEach(nbr => console.log(nbr));
+        bets.forEach(function (item) {
+            console.log(item);
+        });
+    }
+    playLotto("Hannes", 3, 12, 45, 48);
+    playLotto("Kurt", 3, 12, 45, 48, 44, 33, 12);
+    var shop = new Array();
+    shop.category = new Map();
+    shop.add = function (categoryName, ...products) {
+        var row = shop.category[categoryName];
+        if (row == undefined) {
+            shop.category.set(categoryName, new Array());
+        }
+        products.forEach(function (item) {
+            shop.category.get(categoryName).push(item);
+        });
+    };
+    shop.add("fruits", "apple");
+    shop.add("dairy", "milk", "cheese", "yoghurt");
+    shop.add("pastries", "donuts", "croissants");
+    shop.add("cleaning", "soap", "body lotion", "shampoo", "tooth brush");
+    console.log("There are the following products in the store", shop);
 }
 function valref() {
     debugger;
@@ -638,6 +428,47 @@ function staticProperties() {
     var p = { x: 10, y: 20 };
     var result = grid.calculateDistanceFromOrigin(p);
     console.log("Grid result:", result);
+}
+function typedFunctions() {
+    debugger;
+    let addFunction = function (x, y) {
+        return x + y;
+    };
+    var result = addFunction(10, 20);
+    console.log(result);
+}
+function functionParameters() {
+    debugger;
+    //optional param
+    function buildName(firstName, lastName) {
+        if (lastName)
+            return firstName + " " + lastName;
+        else
+            return firstName;
+    }
+    console.log(buildName("Bob"));
+    console.log(buildName("Giro", "Galgohead"));
+    //default param
+    function getAddress(street, city = "Vienna") {
+        return `${street}, ${city}`;
+    }
+    console.log(getAddress("Neuwaldegger Straße"));
+    console.log(getAddress("Seestraße", "Idolsberg"));
+    //rest param
+    function buildFruitBucket(fruitType, ...fruits) {
+        console.log("The following " + fruitType + " are in the bucket " + fruits.join(", "));
+    }
+    buildFruitBucket("Beeren", "Himbeeren", "Brombeeren", "Goji Beeren");
+}
+function arrowFunctions() {
+    debugger;
+    var rectangleFunction = function (width, height) {
+        return width * height;
+    };
+    //Implemented as Lambda or "Arrow" Function
+    var rectangleFunctionArrow = (width, height) => height * width;
+    let result = rectangleFunctionArrow(10, 22);
+    console.log(result);
 }
 // Interfaces
 function interfacesBasics() {

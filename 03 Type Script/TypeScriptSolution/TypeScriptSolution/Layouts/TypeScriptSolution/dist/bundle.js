@@ -79,7 +79,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar car = /** @class */ (function () {\r\n    function car() {\r\n    }\r\n    car.prototype.drive = function () {\r\n        console.log(\"brrrrrm ....\");\r\n    };\r\n    return car;\r\n}());\r\nexports.car = car;\r\n\n\n//# sourceURL=webpack:///./src/car.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Car = /** @class */ (function () {\r\n    function Car() {\r\n    }\r\n    Car.prototype.drive = function () {\r\n        console.log(\"brrrrrm ....\");\r\n    };\r\n    return Car;\r\n}());\r\nexports.Car = Car;\r\n\n\n//# sourceURL=webpack:///./src/car.ts?");
 
 /***/ }),
 
@@ -91,19 +91,31 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nva
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar mylib_1 = __webpack_require__(/*! ./mylib */ \"./src/mylib.ts\");\r\nvar car_1 = __webpack_require__(/*! ./car */ \"./src/car.ts\");\r\nvar lib = new mylib_1.mylib();\r\nlib.log();\r\nfunction drivePorsche() {\r\n    var porsche = new car_1.car();\r\n    porsche.drive();\r\n}\r\nwindow.drive = drivePorsche;\r\n\n\n//# sourceURL=webpack:///./src/index.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar util_1 = __webpack_require__(/*! ./util */ \"./src/util.ts\");\r\nvar car_1 = __webpack_require__(/*! ./car */ \"./src/car.ts\");\r\nvar state_1 = __webpack_require__(/*! ./state */ \"./src/state.ts\");\r\nvar util = new util_1.Util();\r\nutil.log();\r\nfunction drivePorsche() {\r\n    var porsche = new car_1.Car();\r\n    porsche.drive();\r\n}\r\n//export method to global namespace - otherwise is is not available for function call\r\nwindow.drive = drivePorsche;\r\nwindow.state = new state_1.State();\r\n\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ }),
 
-/***/ "./src/mylib.ts":
+/***/ "./src/state.ts":
 /*!**********************!*\
-  !*** ./src/mylib.ts ***!
+  !*** ./src/state.ts ***!
   \**********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar mylib = /** @class */ (function () {\r\n    function mylib() {\r\n    }\r\n    mylib.prototype.log = function () {\r\n        console.log(\"hello word logged from mylib\");\r\n    };\r\n    return mylib;\r\n}());\r\nexports.mylib = mylib;\r\n\n\n//# sourceURL=webpack:///./src/mylib.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar util_1 = __webpack_require__(/*! ./util */ \"./src/util.ts\");\r\nvar State = /** @class */ (function () {\r\n    function State() {\r\n        this.util = new util_1.Util();\r\n    }\r\n    State.prototype.init = function () {\r\n        console.log(\"Initializing State\");\r\n    };\r\n    return State;\r\n}());\r\nexports.State = State;\r\n\n\n//# sourceURL=webpack:///./src/state.ts?");
+
+/***/ }),
+
+/***/ "./src/util.ts":
+/*!*********************!*\
+  !*** ./src/util.ts ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Util = /** @class */ (function () {\r\n    function Util() {\r\n    }\r\n    Util.prototype.log = function () {\r\n        console.log(\"hello word logged from Util\");\r\n    };\r\n    Util.prototype.get = function (url) {\r\n    };\r\n    return Util;\r\n}());\r\nexports.Util = Util;\r\n\n\n//# sourceURL=webpack:///./src/util.ts?");
 
 /***/ })
 

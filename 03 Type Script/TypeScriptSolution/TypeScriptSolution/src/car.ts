@@ -1,5 +1,5 @@
 
-export class car{
+export class Car{
     drive(){
         console.log("brrrrrm ....");
     }

@@ -10,9 +10,7 @@ Connect-PnPOnline -Url $adminUrl
 # The designated hub
 New-PnPSite -Type TeamSite -title "Learning" -alias "learning" -Description "Main site for learning"
 
-# A site to be integrated
-
-New-PnPSite -Type TeamSite -title "Sample TS" -alias "samplets" -Description "A site to be integrated in the hub"
+# Register hub
 
 Connect-SPOService -Url $adminUrl
 
@@ -22,7 +20,8 @@ Set-SPOHubSite -Identity $hubSiteUrl -LogoUrl $hubSiteUrl"/SiteAssets/learning.p
 
 Grant-SPOHubSiteRights -Identity $hubSiteUrl -Principals $user -Rights Join
 
+# Add site to be integrated
+
+New-PnPSite -Type TeamSite -title "Sample TS" -alias "samplets" -Description "A site to be integrated in the hub"
+
 Add-SPOHubSiteAssociation -Site https://$tenant.sharepoint.com/sites/samplets -HubSite https://$tenant.sharepoint.com/sites/$hubUrlFragment 
-
-
-## Site Types: TeamSite | CommunicationSite

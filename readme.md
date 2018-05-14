@@ -1,3 +1,7 @@
+# Configure Environment
+
+[Configure SP from Add-Ins](https://docs.microsoft.com/en-us/sharepoint/dev/sp-add-ins/set-up-an-on-premises-development-environment-for-sharepoint-add-ins)
+
 # Office 365 Dev Tenant
 
 [Setup & Register Office 365 Dev Tenant](https://portal.microsoftonline.com/Signup/MainSignUp.aspx?OfferId=6881A1CB-F4EB-4db3-9F18-388898DAF510&DL=DEVELOPERPACK)

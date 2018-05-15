@@ -19,4 +19,5 @@ function drivePorsche() {
 //export method to global namespace - otherwise is is not available for function call
 (<any>window).drive = drivePorsche;
 
+//exporting an object
 (<any>window).state = new State();

@@ -1,0 +1,52 @@
+﻿$darkBackground: #797474;
+$mediumBackground: #ADA0A0;
+$panelCol: lavender;
+
+@mixin mouse {
+    cursor: pointer;
+}
+
+@mixin big-font {
+    font-size: 18px;
+}
+
+mainDiv {
+    background-color: $darkBackground;
+    @include big-font;
+
+    &:hover {
+        background-color: $mediumBackground;
+        @include mouse;
+    }
+}
+
+.demoContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.demoMenu {
+    min-width: 190px;
+    flex: 1;
+    flex-grow: 1;
+    background-color: $panelCol
+}
+
+.demoWorkbench {
+    min-width: 400px;
+    flex: 4;
+    flex-grow: 4;
+    background-color: $panelCol
+}
+
+
+.spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+.workbench {
+    min-height: 300px;    
+}

@@ -6,6 +6,6 @@
     Location="Microsoft.SharePoint.StandardMenu"
     Sequence="1000"
     Title="REST Basics">
-    <UrlAction Url="_layouts/15/RESTBasics/RESTDemos.aspx"/>
+    <UrlAction Url="_layouts/15/RESTBasics/RESTBasics.aspx"/>
   </CustomAction>
 </Elements>

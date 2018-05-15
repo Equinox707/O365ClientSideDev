@@ -245,8 +245,9 @@ function deleteListItem() {
 }
 function deleteList() {
     debugger;
+    var target = _spPageContextInfo.webAbsoluteUrl + "/_api/web/Lists/getbytitle('MyRestList')";
     $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/Lists/getbytitle('MyRestList')",
+        url: target,
         method: "POST",
         headers: {
             "accept": "application/json;odata=verbose",
@@ -314,9 +315,19 @@ var SPUtil = /** @class */ (function () {
     };
     SPUtil.prototype.getHeaders = function (operation) {
         var result;
+        var digest = $("#__REQUESTDIGEST").val();
         switch (SPOperation) {
             case (SPOperation.get):
                 result = { "accept": "application/json;odata=verbose" };
+                break;
+            case (SPOperation.create):
+                result = {
+                    //Create needs a specific header
+                    "accept": "application/json;odata=verbose",
+                    "content-type": "application/json;odata=verbose",
+                    "X-RequestDigest": digest
+                };
+                break;
             default:
         }
         return result;

@@ -15,7 +15,7 @@ var appRoutes = [
         component: home_component_1.HomeComponent
     }
 ];
-var AppRoutingModule = (function () {
+var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([

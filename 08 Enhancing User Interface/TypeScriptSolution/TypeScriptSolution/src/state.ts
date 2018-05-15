@@ -1,14 +1,13 @@
-import { Util } from "./util";
+import { SPUtil } from "./util";
 
-export class State{
-    
-    util : Util
+export class State {
+  util: SPUtil;
 
-    constructor(){
-        this.util = new Util();
-    }
+  constructor() {
+    this.util = new SPUtil();
+  }
 
-    init(){        
-        console.log("Initializing State")
-    }
+  init() {
+    console.log("Initializing State");
+  }
 }

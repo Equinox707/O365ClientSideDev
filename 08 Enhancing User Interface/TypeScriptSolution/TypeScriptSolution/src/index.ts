@@ -1,16 +1,19 @@
-import { Util } from './util'
-import { Car } from './car'
-import { State } from './state'
+import { SPUtil } from "./util";
+import { Car } from "./car";
+import { State } from "./state";
 
-debugger;
-
-let util = new Util();
+let util = new SPUtil();
 util.log();
-util.getWebTitle("http://sp2016");
 
-function drivePorsche(){
-    let porsche = new Car();
-    porsche.drive();
+SPUtil.getWebTitleCSOM("http://sp2016").then(data =>
+  console.log(`Web Title received by CSOM is: ${data}`)
+);
+
+SPUtil.getWebTitleREST("http://sp2016");
+
+function drivePorsche() {
+  let porsche = new Car();
+  porsche.drive();
 }
 
 //export method to global namespace - otherwise is is not available for function call

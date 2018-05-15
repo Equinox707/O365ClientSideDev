@@ -8,6 +8,8 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="usingTS.aspx.cs" Inherits="TypeScriptSolution.Layouts.TypeScriptSolution.usingTS" DynamicMasterPageFile="~masterurl/default.master" %>
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
+    <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.js"></script>
     <script src="dist/bundle.js"></script>
 </asp:Content>
 

@@ -4,7 +4,7 @@
      Name="SharePointAddInAngular"
      ProductID="{38740637-7e19-48fa-8cfa-b47d3b5ddef2}"
      Version="1.0.0.0"
-     SharePointMinVersion="15.0.0.0"
+     SharePointMinVersion="16.0.0.0"
 >
   <Properties>
     <Title>SharePointAddInAngular</Title>

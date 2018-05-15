@@ -5,10 +5,11 @@
   "private": true,
   "author": "alexander.pajer@integrations.at",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {    
     "jquery": "^3.3.1"
   },
   "devDependencies": {
+    "@types/sharepoint": "^2016.1.0",
     "ts-loader": "^4.3.0",
     "typescript": "^2.8.3",
     "webpack": "^4.8.1",

@@ -1,4 +1,5 @@
-﻿
+﻿//# sourceURL=objectOreientation.js
+
 function firstObject() {
     debugger;
 
@@ -6,7 +7,17 @@ function firstObject() {
     student.name = "Homer Simpson";
     student.grade = 3;
 
-    var dude = {}
+    function talk() {
+        console.log("I am talking")
+    }
+
+    var dude = {
+        talk: talk,
+        run: function () {
+            console.log("running")
+        }
+    }
+
     dude.name = "Hans";
     dude.say = function () {
         console.log("Modul-Eigenschaft: " + dude.name);

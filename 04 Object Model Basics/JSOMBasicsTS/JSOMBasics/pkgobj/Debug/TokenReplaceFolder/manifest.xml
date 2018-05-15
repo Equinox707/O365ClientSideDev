@@ -5,9 +5,9 @@
   </Assemblies>
   <TemplateFiles>
     <TemplateFile Location="Layouts\JSOMBasics\usingJSOM.aspx" />
+    <TemplateFile Location="Layouts\JSOMBasics\usingJSOM.ts" />
     <TemplateFile Location="Layouts\JSOMBasics\usingJSOM.js" />
     <TemplateFile Location="Layouts\JSOMBasics\usingJSOM.js.map" />
-    <TemplateFile Location="Layouts\JSOMBasics\usingJSOM.ts" />
     <TemplateFile Location="LAYOUTS\1033\jquery-2.1.4.min.js" />
     <TemplateFile Location="LAYOUTS\1033\ondemand.js" />
   </TemplateFiles>

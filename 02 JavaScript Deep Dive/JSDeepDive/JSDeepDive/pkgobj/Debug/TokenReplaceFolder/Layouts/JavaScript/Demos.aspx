@@ -11,7 +11,7 @@
     <script src="lib/jquery/jquery-3.1.1.min.js"></script>
     <script src="lib/moment/moment.js"></script>
     <script src="demos.aspx.js"></script>   
-    <%--<script src="bundle/webpack-bundle.js"></script>--%>
+    <%--<script src="bundle/bundle.js"></script>--%>
     <SharePoint:CssRegistration runat="server" ID="CssRegistration1" Name="/_layouts/15/JavaScript/css/demo.css" After="corev15.css"/>  
 </asp:Content>
 

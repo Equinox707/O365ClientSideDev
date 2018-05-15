@@ -8,7 +8,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Demos.aspx.cs" Inherits="JSFundamentals.Layouts.JSFundamentals.Demos" DynamicMasterPageFile="~masterurl/default.master" %>
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
-    <script src="lib/jquery/jquery-3.1.1.min.js"></script>
+    <script src="lib/jquery/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="lib/moment/moment.js"></script>
     <script src="demos.aspx.js"></script>   
     <%--<script src="bundle/bundle.js"></script>--%>

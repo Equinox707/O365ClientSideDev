@@ -115,7 +115,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nva
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Util = /** @class */ (function () {\r\n    function Util() {\r\n    }\r\n    Util.prototype.log = function () {\r\n        console.log(\"hello word logged from Util\");\r\n    };\r\n    Util.prototype.get = function (url) {\r\n    };\r\n    return Util;\r\n}());\r\nexports.Util = Util;\r\n\n\n//# sourceURL=webpack:///./src/util.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Util = /** @class */ (function () {\r\n    function Util() {\r\n    }\r\n    Util.prototype.log = function () {\r\n        console.log(\"hello word logged from Util\");\r\n    };\r\n    Util.prototype.get = function (url) {\r\n        console.log(\"fetching ...\");\r\n    };\r\n    return Util;\r\n}());\r\nexports.Util = Util;\r\n\n\n//# sourceURL=webpack:///./src/util.ts?");
 
 /***/ })
 

@@ -1,4 +1,4 @@
-﻿console.log("script loaded");
+﻿console.log("script loaded - changed by cksdev");
 
 window.onload = function () {
     console.log("window.onload executed");

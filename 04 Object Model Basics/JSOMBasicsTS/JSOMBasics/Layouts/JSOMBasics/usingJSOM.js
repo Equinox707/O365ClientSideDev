@@ -130,16 +130,18 @@ function createWebsite() {
 }
 function writeToPropertyBag() {
     debugger;
+    var key = "myConfig";
     //Farm, Site, Web, ListItem have properties -> key / val dictionary
     var clientContext = SP.ClientContext.get_current();
     var web = clientContext.get_web();
     //List has not props, but SPFolder -> RootFolder has
-    //var list = web.get_lists().getByTitle('mylist').get_rootFolder().get_allProperties();
-    web.get_allProperties().set_item("myConfig", JSON.stringify({ 'Name': 'xyz', 'Value': 123 }));
-    clientContext.load(web);
+    //var listRootFldProps = web.get_lists().getByTitle('mylist').get_rootFolder().get_allProperties();
+    //listRootFldProps.set_item("myConfig", JSON.stringify({ 'Name': 'xyz', 'Value': 123 })
+    web.get_allProperties().set_item(key, JSON.stringify({ 'Name': 'xyz', 'Value': 123 }));
     web.update();
+    clientContext.load(web);
     clientContext.executeQueryAsync(function () {
-        var val = web.get_allProperties().get_item("myConfig");
+        var val = web.get_allProperties().get_item(key);
         console.log("Current value of myCustomObject: ", val);
     }, onErr);
 }

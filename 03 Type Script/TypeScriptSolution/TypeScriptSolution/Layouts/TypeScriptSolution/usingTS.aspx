@@ -12,9 +12,9 @@
 </asp:Content>
 
 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
-    <a style="cursor: pointer;" onclick="drive()">Drive me</a>
-    <a style="cursor: pointer;" onclick="state.init()">Use State</a>
-    <a style="cursor: pointer;" onclick="state.util.log()">Log using State</a>
+    <a style="cursor: pointer;" onclick="drive()">Drive me</a><br/>
+    <a style="cursor: pointer;" onclick="state.init()">Use State</a><br/>
+    <a style="cursor: pointer;" onclick="state.util.log()">Log using State</a><br/>
 </asp:Content>
 
 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">

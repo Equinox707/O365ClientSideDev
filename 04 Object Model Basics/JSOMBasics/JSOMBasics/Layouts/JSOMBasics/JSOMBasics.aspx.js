@@ -37,7 +37,7 @@ function Batching() {
     cctx.load(web, 'Title', 'Created');
     cctx.load(lists);
     cctx.executeQueryAsync(function () {
-        console.log("Successfully loaded" + web.get_title());
+        console.log("Successfully loaded" + web.get_title());        
     }, onErr);
 }
 

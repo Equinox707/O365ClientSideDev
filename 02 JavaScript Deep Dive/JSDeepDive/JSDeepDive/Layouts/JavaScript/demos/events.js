@@ -1,89 +1,88 @@
-﻿
-function addEvents() {
-    debugger;
+﻿function addEvents() {
+  debugger;
 
-    $("#container div").each(function (index) {
-        $(this).mouseover(function (event) {
-            $(event.currentTarget).css("padding-left", "30px");
-        });
-        $(this).mouseleave(function (event) {
-            $(event.currentTarget).css("padding-left", "0");
-        });
-    }
-    );
+  $("#container div").each(function(index) {
+    $(this).mouseover(function(event) {
+      $(event.currentTarget).css("padding-left", "30px");
+    });
+    $(this).mouseleave(function(event) {
+      $(event.currentTarget).css("padding-left", "0");
+    });
+  });
 }
 
 function unbind() {
-    debugger;
+  debugger;
 
-    $("#unbound").off('click');
+  $("#unbound").off("click");
 }
 
 function log() {
-    debugger;
+  debugger;
 
-    console.log("clicked");
+  console.log("clicked");
 }
 
 function bindPreventDefault() {
-    debugger;
+  debugger;
 
-    $("#prevDef").on('click', preventDef);
+  $("#prevDef").on("click", preventDef);
 }
 
 function preventDef(event) {
-    debugger;
+  debugger;
 
-    event.preventDefault();
-    console.log("Tripadvisor blocked by jQuery firewall :-)");
+  event.preventDefault();
+  console.log("Tripadvisor blocked by jQuery firewall :-)");
 }
 
 function doAnimate(trgt) {
-    debugger;
+  debugger;
 
-    $(trgt).animate({
-                opacity: 0.25,
-                fontSize: "30px",
-                width: "+=100"
-            },
-            300,
-            function() {
-                // executes when the animation is done
-            }
-        );
+  $(trgt).animate(
+    {
+      opacity: 0.25,
+      fontSize: "30px",
+      width: "+=100"
+    },
+    300,
+    function() {
+      // executes when the animation is done
+    }
+  );
 }
 
 function addEvttoChildren() {
-    debugger;
+  debugger;
 
-    $("#divLiveParent").on("click", "button", showTarget);
-    $("#nbrInput").on("blur", "input", showTarget);
-    $("#nbrInput").on("focus", "input", showTarget);
+  $("#divLiveParent").on("click", "button", showTarget);
+  $("#nbrInput").on("blur", "input", showTarget);
+  $("#nbrInput").on("focus", "input", showTarget);
 }
 
 function showTarget() {
-    debugger;
+  debugger;
 
-    console.log(event.type);    // The event type, eg. "click"
-    console.log(event.which);   // The button or key that was pressed.
-    console.log(event.target);  // The originating element.
-    console.log(event.pageX);   // The document mouse X coordinate.
-    console.log(event.pageY);   // The document mouse Y coordinate.
+  console.log(event.type); // The event type, eg. "click"
+  console.log(event.which); // The button or key that was pressed.
+  console.log(event.target); // The originating element.
+  console.log(event.pageX); // The document mouse X coordinate.
+  console.log(event.pageY); // The document mouse Y coordinate.
 }
 
 function addChildElement() {
-    debugger;
+  debugger;
 
-    var btn = $("<button/>",{id: "btnC", text: "Button C"});
-    $("#divLiveParent").append(btn);
+  var btn = $("<button/>", { id: "btnC", text: "Button C" });
+  $("#divLiveParent").append(btn);
 }
 
 function bindCustomEvt() {
-    debugger;
+  debugger;
 
-    $("btnReset").trigger("resetForm");
-    $(".vdElement").on("resetForm", function () {
-        $("#fullname").val("");
-        $("#password").val("");
-    });
+  $("btnReset").trigger("resetForm");
+  $(".vdElement").on("resetForm", function() {
+    $("#fullname").val("");
+    $("#password").val("");
+  });
 }

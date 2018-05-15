@@ -24,6 +24,7 @@ function basicVariables() {
     var dogWeight = 25.4;
     var rand = Math.random();
     var numbers = [];
+    var othernbrs = new Array();
     numbers[0] = 1;
     //numbers.push("two"); // compile-time error
     var isCustomer = false;
@@ -54,6 +55,8 @@ function useLetConst() {
     console.log(index); // 0
     const pi = 3.14;
     //pi = 2;
+    const p = { name: "hugo" };
+    p.name = "hubgobert";
 }
 function stringFunctions() {
     debugger;
@@ -139,6 +142,7 @@ function arrayHelpers() {
     }
     console.log(`There areas ${result.length} items in the Array`);
     //forEach
+    fruits.forEach(item => item.quantity++);
     fruits.forEach(fruit => {
         fruit.quantity++;
     });
@@ -260,7 +264,7 @@ function valref() {
     passArgs(myNumber, person);
     console.log("result for myNumber & person:", myNumber, person);
     myNumber = 500;
-    person.name = "";
+    person.name = "Josef";
     passArgs(myNumber, Object.assign({}, person));
     console.log("result for myNumber & person:", myNumber, person);
 }
@@ -304,18 +308,6 @@ function classesConstructor() {
             this.alive = Alive;
         }
     }
-    let jim = new Person("Jim", true);
-    console.log(jim.name + " is alive: " + jim.alive);
-    class Bill {
-        constructor(Text = "", Paid = false) {
-            this.text = Text;
-            this.paid = Paid;
-        }
-    }
-    var b1 = new Bill("Car Purchase");
-    var b2 = new Bill("Rösti für Freundin", true);
-    console.log("b1 with Text: " + b1.text + " was " + b1.paid);
-    console.log("b2 with Text: " + b2.text + " was " + b2.paid);
     class Dog {
         constructor(name, breed) {
             this.name = name;
@@ -332,6 +324,18 @@ function classesConstructor() {
     console.log(dog.barkName());
     console.log(dog.sayName());
     console.log(dog.breed);
+    let jim = new Person("Jim", true);
+    console.log(jim.name + " is alive: " + jim.alive);
+    class Bill {
+        constructor(Text = "", Paid = false) {
+            this.text = Text;
+            this.paid = Paid;
+        }
+    }
+    var b1 = new Bill("Car Purchase");
+    var b2 = new Bill("Rösti für Freundin", true);
+    console.log("b1 with Text: " + b1.text + " was " + b1.paid);
+    console.log("b2 with Text: " + b2.text + " was " + b2.paid);
     class Smurf {
         constructor(name) {
             if (name.length < 1) {
@@ -582,13 +586,53 @@ function usingPromises() {
         .then(data => console.log("Date received from Async Task", JSON.parse(data)))
         .catch(err => console.log("Err:", err));
 }
+function useAjax() {
+    var query = "http://sp2016/_api/web/title";
+    //Callbacks
+    $.ajax({
+        type: "GET",
+        url: query,
+        dataType: "json",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose"
+        },
+        success(data) {
+            console.log(data.d.results);
+        },
+        error(msg) {
+            console.log("error calling service", msg);
+            console.log(msg);
+        }
+    });
+    //Promises
+    $.ajax({
+        type: "GET",
+        url: query,
+        dataType: "json",
+        headers: {
+            "accept": "application/json;odata=verbose",
+            "content-type": "application/json;odata=verbose"
+        }
+    }).then(data => {
+        console.log(data);
+    }).fail(err => {
+        console.log(err);
+    });
+}
+var ratesQuery = "http://data.fixer.io/api/latest?access_key=6c36c303e33169dd7102897259fc93be";
 function usingFetch() {
-    fetch("https://api.fixer.io/latest").then(data => console.log("Data received from fetch", data));
+    fetch(ratesQuery).then(response => {
+        console.log("Data received from fetch", response);
+        return response.json();
+    }).then(data => {
+        console.log(data);
+    });
 }
 function usingFetchAwait() {
     function getRates() {
         return __awaiter(this, void 0, void 0, function* () {
-            let response = yield fetch("https://api.fixer.io/latest");
+            let response = yield fetch(ratesQuery);
             let reates = yield response.json();
             console.log("Data received using fetch - await", reates);
         });

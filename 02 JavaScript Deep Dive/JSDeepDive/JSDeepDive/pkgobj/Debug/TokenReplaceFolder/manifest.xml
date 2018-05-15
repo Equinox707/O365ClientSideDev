@@ -7,6 +7,7 @@
     <TemplateFile Location="Layouts\JavaScript\bundle\es5-bundle.js.map" />
     <TemplateFile Location="Layouts\JavaScript\demos\vouchers.json" />
     <TemplateFile Location="Layouts\JavaScript\sass\sass-demo.scss" />
+    <TemplateFile Location="Layouts\JavaScript\bundle\bundle.js" />
     <TemplateFile Location="Layouts\JavaScript\bundle\es5-bundle.js" />
     <TemplateFile Location="Layouts\JavaScript\bundle\webpack-bundle.js" />
     <TemplateFile Location="Layouts\JavaScript\css\demo.css" />

@@ -28,7 +28,7 @@ function Batching() {
     cctx.load(lists);
 
     cctx.executeQueryAsync(() => {
-        console.log("Successfully loaded web and lists", web.get_title(), lists);
+        console.log("Successfully loaded web and lists", web.get_title(), lists);            
     }, onErr);
 }
 
@@ -172,7 +172,7 @@ function createWebsite() {
     wci.set_useSamePermissionsAsParentSite(true);
     wci.set_webTemplate('STS#0');
 
-    web.get_webs().add(wci);
+    web.get_webs().add(wci); 
     web.update();
 
     clientContext.executeQueryAsync(() => { console.log("JSOM Web created"); }, onErr);
@@ -181,19 +181,23 @@ function createWebsite() {
 function writeToPropertyBag() {
 
     debugger;
+
+    var key = "myConfig";
+
     //Farm, Site, Web, ListItem have properties -> key / val dictionary
     var clientContext: SP.ClientContext = SP.ClientContext.get_current();
     var web: SP.Web = clientContext.get_web();
 
     //List has not props, but SPFolder -> RootFolder has
-    //var list = web.get_lists().getByTitle('mylist').get_rootFolder().get_allProperties();
+    //var listRootFldProps = web.get_lists().getByTitle('mylist').get_rootFolder().get_allProperties();
+    //listRootFldProps.set_item("myConfig", JSON.stringify({ 'Name': 'xyz', 'Value': 123 })
 
-    web.get_allProperties().set_item("myConfig", JSON.stringify({ 'Name': 'xyz', 'Value': 123 }));
-    clientContext.load(web);
+    web.get_allProperties().set_item(key, JSON.stringify({ 'Name': 'xyz', 'Value': 123 }));    
     web.update();
 
+    clientContext.load(web);
     clientContext.executeQueryAsync(() => {
-        var val = web.get_allProperties().get_item("myConfig");
+        var val = web.get_allProperties().get_item(key);
         console.log("Current value of myCustomObject: ", val);
     }, onErr);
 }
@@ -285,7 +289,7 @@ function addFieldToList() {
 
     var fieldNumber: SP.FieldNumber = <SP.FieldNumber>clientContext.castTo(fld, SP.FieldNumber);
     fieldNumber.set_maximumValue(100);
-    fieldNumber.set_minimumValue(35);
+    fieldNumber.set_minimumValue(35);    
     fieldNumber.update();
 
     clientContext.load(fld);
@@ -297,6 +301,7 @@ function deleteList() {
 
     var clientContext: SP.ClientContext = SP.ClientContext.get_current();
     var web: SP.Web = clientContext.get_web();
+
     var list: SP.List = web.get_lists().getByTitle(listName);
     list.deleteObject();
 
@@ -313,6 +318,7 @@ function createListItem() {
 
     var itemCreateInfo: SP.ListItemCreationInformation = new SP.ListItemCreationInformation();
     var li = list.addItem(itemCreateInfo);
+
     li.set_item('Title', 'My post in the news list');
     li.set_item('Body', 'Hello World!');
     li.update();
@@ -329,8 +335,10 @@ function readListItem() {
 
     itemId = 1;
     var query = "<View><Query><Where><Eq><FieldRef Name='ID' /><Value Type='Counter'>" + itemId + "</Value></Eq></Where></Query></View>";
+
     var clientContext: SP.ClientContext = new SP.ClientContext();
     var list = clientContext.get_web().get_lists().getByTitle(listName);
+
     var camlQuery = new SP.CamlQuery();
     camlQuery.set_viewXml(query);
     var collListItem = list.getItems(camlQuery);
@@ -393,8 +401,8 @@ function handlingLookups() {
     var lists = web.get_lists();
     var listNews = lists.getByTitle(listName);
     var firstNews = listNews.getItemById(1);
-    cctx.load(firstNews);
 
+    cctx.load(firstNews);
     cctx.executeQueryAsync(() => {
         var lookupField = firstNews.get_item("Writer");
         var lookupTitle = lookupField.get_lookupValue();

@@ -22,3 +22,7 @@ Accept: application/json
 
 For easy O365 Auth install [Postman Interceptor](https://chrome.google.com/webstore/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo?hl=en)
 
+## Sharepoint Client Browser
+
+https://github.com/bramdejager/spcb
+

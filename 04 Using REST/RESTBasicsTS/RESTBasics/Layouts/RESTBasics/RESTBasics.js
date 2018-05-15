@@ -82,8 +82,9 @@ function addField() {
         'EnforceUniqueValues': 'false',
         'StaticName': 'My Custom Field'
     });
+    var query = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('MyRestList')/Fields";
     $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('MyRestList')/Fields",
+        url: query,
         type: "POST",
         data: fld,
         headers: {

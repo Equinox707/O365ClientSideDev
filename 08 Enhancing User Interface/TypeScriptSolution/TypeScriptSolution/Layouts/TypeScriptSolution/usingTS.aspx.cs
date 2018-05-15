@@ -2,9 +2,9 @@
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.WebControls;
 
-namespace RESTBasics.Layouts.RESTBasics
+namespace TypeScriptSolution.Layouts.TypeScriptSolution
 {
-    public partial class RESTDemos : LayoutsPageBase
+    public partial class usingTS : LayoutsPageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

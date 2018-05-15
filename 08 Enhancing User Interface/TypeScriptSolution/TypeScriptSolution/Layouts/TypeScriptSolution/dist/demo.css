@@ -2,7 +2,7 @@ mainDiv {
   background-color: #797474;
   font-size: 18px; }
   mainDiv:hover {
-    background-color: #ADA0A0;
+    background-color: #ada0a0;
     cursor: pointer; }
 
 .demoContainer {
@@ -14,17 +14,17 @@ mainDiv {
   min-width: 190px;
   flex: 1;
   flex-grow: 1;
-  background-color: lavender; }
+  background-color: lavender;
+  padding: 10px; }
 
 .demoWorkbench {
   min-width: 400px;
   flex: 4;
   flex-grow: 4;
-  background-color: lavender; }
+  background-color: lavender;
+  padding: 10px; }
 
 .spacer {
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
   flex: 1 1 auto; }
 
 .workbench {

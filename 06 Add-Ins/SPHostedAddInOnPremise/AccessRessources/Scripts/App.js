@@ -265,3 +265,11 @@ function useWebProxy() {
             console.log(args.get_message());
         });
 }
+
+function userNorthwind2018() {
+
+    $.ajax({
+        url: "http://services.odata.org/Northwind/Northwind.svc/Categories",
+        cache: false
+    }).then(function (data) { console.log(data) });
+}

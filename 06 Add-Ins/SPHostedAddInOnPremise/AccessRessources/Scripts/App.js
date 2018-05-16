@@ -55,10 +55,10 @@ function readAppWebCSOM() {
 function writeHostWebCSOM() {
     debugger;
 
-    this.appContext = new SP.ClientContext.get_current();
+    var appContext = new SP.ClientContext.get_current();
     var hostContext = new SP.AppContextSite(appContext, hostUrl);
 
-    this.list = hostContext.get_web().get_lists().getByTitle(hostListName);
+    var list = hostContext.get_web().get_lists().getByTitle(hostListName);
     var lci = new SP.ListItemCreationInformation();
     var li = list.addItem(lci);
     li.set_item('Title', 'News in HostWeb created by CSOM');
@@ -75,7 +75,7 @@ function writeHostWebCSOM() {
 function writeAppWebCSOM() {
     this.appContext = new SP.ClientContext.get_current();
 
-    this.list = appContext.get_web().get_lists().getByTitle(appListName);
+    var list = appContext.get_web().get_lists().getByTitle(appListName);
     var lci = new SP.ListItemCreationInformation();
     var li = list.addItem(lci);
     li.set_item('Title', 'News in AppWeb created by CSOM');

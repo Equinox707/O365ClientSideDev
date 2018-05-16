@@ -42,10 +42,14 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="AnnouncementsList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5c416dfc-82d1-48b9-a616-9d47f5bf2e2b}</SharePointProjectItemId>
+    </None>
     <None Include="packages.config" />
     <None Include="Pages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{cd793ba5-61e1-4702-af12-87be121cf1f1}</SharePointProjectItemId>
     </None>
+    <Content Include="AnnouncementsList\Elements.xml" />
     <Content Include="Pages\Account.html" />
     <Content Include="Pages\Contact.html" />
     <Content Include="Pages\Elements.xml" />

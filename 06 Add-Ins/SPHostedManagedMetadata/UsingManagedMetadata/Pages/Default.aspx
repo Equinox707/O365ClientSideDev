@@ -11,12 +11,12 @@
     <script type="text/javascript" src="../Scripts/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="/_layouts/15/sp.runtime.debug.js"></script>
     <script type="text/javascript" src="/_layouts/15/sp.debug.js"></script>
-
+    <script type="text/javascript" src="../Scripts/SP.Taxonomy.js"></script>
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
     <!-- Add your JavaScript to the following file -->
     <script type="text/javascript" src="../Scripts/App.js"></script>
-    <script type="text/javascript" src="../Scripts/SP.Taxonomy.js"></script>
+   
 
 </asp:Content>
 

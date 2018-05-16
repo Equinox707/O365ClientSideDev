@@ -9,6 +9,8 @@
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <SharePoint:ScriptLink ID="jquery" Name="SecurityDemos/lib/jquery-2.1.4.min.js" runat="server" Localizable="False"/>
+    <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
+    <script type="text/javascript" src="/_layouts/15/sp.js"></script>
     <script type="text/javascript" src="/_layouts/15/SP.UserProfiles.js"></script>
     
     <%--Required for People Picker--%>
@@ -18,9 +20,8 @@
     <SharePoint:ScriptLink name="autofill.js" runat="server" LoadAfterUI="true" Localizable="false" />
     <SharePoint:ScriptLink name="sp.RequestExecutor.js" runat="server" LoadAfterUI="true" Localizable="false" />
     <SharePoint:ScriptLink name="sp.core.js" runat="server" LoadAfterUI="true" Localizable="false" />
-     <SharePoint:ScriptLink name="sp.js" runat="server" LoadAfterUI="true" Localizable="false" />
-    <SharePoint:ScriptLink name="sp.runtime.js" runat="server" LoadAfterUI="true" Localizable="false" />
-    <%--<SharePoint:ScriptLink ID="SecurityBasicsSL" Name="SecurityDemos/SecurityBasics.aspx.js" Localizable="False" runat="server"/>--%>
+
+    <SharePoint:ScriptLink ID="SecurityBasicsSL" Name="SecurityDemos/SecurityBasics.aspx.js" Localizable="False" runat="server"/>
     <script type="text/javascript" src="SecurityBasics.aspx.js"></script>
 </asp:Content>
 
@@ -31,8 +32,8 @@
     <a href="#" onclick="createGroup()">Create Group</a><br/>
     <a href="#" onclick="retrieveAllUsersInGroup()">Get Users in Group</a><br/>
     <a href="#" onclick="retrieveAllUsersInSite()">Get Users in Site</a><br/>
-    <a href="#" onclick="retrieveUser()">Get a specific User</a><br/>
     <a href="#" onclick="createUser()">Create User</a> <br/>   
+    <a href="#" onclick="retrieveUser()">Get a specific User</a><br/>    
     <a href="#" onclick="addUserToGroup()">Add User to SP Group</a><br/>
     <br/> 
     <div><h3>Permissions</h3></div>

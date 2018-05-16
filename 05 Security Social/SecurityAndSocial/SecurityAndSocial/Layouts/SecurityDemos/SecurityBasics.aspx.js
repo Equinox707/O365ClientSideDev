@@ -4,6 +4,20 @@
 
 //Groups
 
+function listAllGroups() {
+    debugger;
+    var cc = new SP.ClientContext();
+    var siteGrps = cc.get_web().get_siteGroups();
+    cc.load(siteGrps);
+    cc.executeQueryAsync(function () {
+        var grpEnumerator = siteGrps.getEnumerator();
+        while (grpEnumerator.moveNext()) {
+            var grp = grpEnumerator.get_current();
+            console.log('Grp: ' + grp.get_title() + ' ID: ' + grp.get_id());
+        }
+    }, logError);
+}
+
 function createGroup() {
     debugger;
     var cc = new SP.ClientContext();
@@ -14,26 +28,13 @@ function createGroup() {
     gci.set_title("JSOMGrp");
     gci.set_description('This is a new group created by JSOM!');
     var grp = siteGroups.add(gci);
+
     cc.load(siteGroups);
     cc.executeQueryAsync(function () {
         console.log("Web contains the following groups:");
         for (var i = 0; i < siteGroups.get_count() ; i++) {
             console.log(siteGroups.itemAt(i).get_title());
         }
-    }, logError);
-}
-
-function listAllGroups() {
-    debugger;
-    var cc = new SP.ClientContext();
-    var siteGrps = cc.get_web().get_siteGroups();
-    cc.load(siteGrps);
-    cc.executeQueryAsync(function() {
-        var grpEnumerator = siteGrps.getEnumerator();
-        while (grpEnumerator.moveNext()) {
-            var grp = grpEnumerator.get_current();
-            console.log('User: ' + grp.get_title() + ' ID: ' + grp.get_id());
-        }        
     }, logError);
 }
 
@@ -53,38 +54,6 @@ function retrieveAllUsersInGroup() {
     }, logError);
 }
 
-//User
-function addUserToGroup() {
-    debugger;
-    var cc = new SP.ClientContext();
-    var grps = cc.get_web().get_siteGroups();
-    var oGroup = grps.getByName('JSOMGrp');
-    var uci = new SP.UserCreationInformation();
-    uci.set_email('john.muellerr@somewhere.com');
-    uci.set_loginName('spdom\\john.muellerr');
-    uci.set_title('John Müllerr');
-    this.usr = oGroup.get_users().add(uci);
-
-    cc.load(usr);
-    cc.executeQueryAsync(function() {
-        console.log("user added to group jsomgrp");
-    }, logError);
-}
-
-function createUser() {
-    debugger;
-    var cc = new SP.ClientContext();
-    var siteUsers = cc.get_web().get_siteUsers();
-    var uci = new SP.UserCreationInformation();
-    uci.set_email('franken.stein@somewhere.com');
-    uci.set_loginName('spdom\\franken.stein');
-    uci.set_title('Franken Stein');
-    var usr = siteUsers.addUser(uci);
-    cc.load(usr);
-    cc.executeQueryAsync(function() {console.log("user created");},
-        logError);
-}
-
 function retrieveAllUsersInSite() {
     debugger;
     var cc = new SP.ClientContext();
@@ -95,19 +64,52 @@ function retrieveAllUsersInSite() {
         while (userEnumerator.moveNext()) {
             var usr = userEnumerator.get_current();
             console.log('User: ' + usr.get_title() + ' ID: ' + usr.get_id() + ' Email: ' + usr.get_email() + ' Login Name: ' + usr.get_loginName());
-        }        
+        }
     }, logError);
+}
+
+function createUser() {
+    debugger;
+    var cc = new SP.ClientContext();
+    var siteUsers = cc.get_web().get_siteUsers();
+    var uci = new SP.UserCreationInformation();
+    uci.set_email('d.duck@spdom.local');
+    uci.set_loginName('spdom\\d.duck');
+    uci.set_title('Donald Duck');
+    var usr = cc.get_web().get_siteUsers().add(uci);
+    cc.load(usr);
+    cc.executeQueryAsync(function () { console.log("user created"); },
+        logError);
 }
 
 function retrieveUser() {
     debugger;
     var cc = new SP.ClientContext();
-    var user = cc.get_web().get_siteUsers().getByLoginName('spdom\\donald.duck');
+    var user = cc.get_web().get_siteUsers().getByLoginName('spdom\\d.duck');
     cc.load(user);
-    cc.executeQueryAsync(function () {        
+    cc.executeQueryAsync(function () {
         console.log('User: ' + user.get_title() + ' ID: ' + user.get_id() + ' Email: ' + user.get_email() + ' Login Name: ' + user.get_loginName());
     }, logError);
 }
+
+//User
+function addUserToGroup() {
+    debugger;
+    var cc = new SP.ClientContext();
+    var grps = cc.get_web().get_siteGroups();
+    var oGroup = grps.getByName('JSOMGrp');
+    var uci = new SP.UserCreationInformation();
+    uci.set_email('d.duck@spdom.local');
+    uci.set_loginName('spdom\\d.duck');
+    uci.set_title('Donald Duck');
+    this.usr = oGroup.get_users().add(uci);
+
+    cc.load(usr);
+    cc.executeQueryAsync(function() {
+        console.log("user added to group jsomgrp");
+    }, logError);
+}
+
 
 //Permissions
 
@@ -251,8 +253,7 @@ function getPerson() {
     debugger;
     var peoplePicker = this.SPClientPeoplePicker.SPClientPeoplePickerDict.divPeoplePicker_TopSpan;
     var users = peoplePicker.GetAllUserInfo();
-    console.log("users picked:");
-    console.log(users);
+    console.log("users picked:", users);    
 }
 
 
@@ -264,26 +265,26 @@ function logError(sender, args) {
 
 //ES6
 
-class SecurityHelper {
+//class SecurityHelper {
 
-    createGroup() {
-        var cc = new SP.ClientContext();
-        var web = cc.get_web();
-        var siteGroups = web.get_siteGroups();
+//    createGroup() {
+//        var cc = new SP.ClientContext();
+//        var web = cc.get_web();
+//        var siteGroups = web.get_siteGroups();
 
-        var gci = new SP.GroupCreationInformation();
-        gci.set_title("JSOMGrp");
-        gci.set_description('This is a new group created by JSOM!');
-        var grp = siteGroups.add(gci);
-        cc.load(siteGroups);
-        cc.executeQueryAsync(function () {
-            console.log("Web contains the following groups:");
-            for (var i = 0; i < siteGroups.get_count() ; i++) {
-                console.log(siteGroups.itemAt(i).get_title());
-            }
-        }, logError);
-    }
-}
+//        var gci = new SP.GroupCreationInformation();
+//        gci.set_title("JSOMGrp");
+//        gci.set_description('This is a new group created by JSOM!');
+//        var grp = siteGroups.add(gci);
+//        cc.load(siteGroups);
+//        cc.executeQueryAsync(function () {
+//            console.log("Web contains the following groups:");
+//            for (var i = 0; i < siteGroups.get_count() ; i++) {
+//                console.log(siteGroups.itemAt(i).get_title());
+//            }
+//        }, logError);
+//    }
+//}
 
-var sh = new SecurityHelper();
-sh.createGroup();
+//var sh = new SecurityHelper();
+//sh.createGroup();

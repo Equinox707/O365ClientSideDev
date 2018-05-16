@@ -66,7 +66,7 @@ namespace CSOM_Console
 
                 //Upload File
                 var sourceFilePath = @"D:\O365ClientSideDev\00 Ressources\Sample.docx";
-                var targetUrl = "/Documents";
+                var targetUrl = "/Shared%20Documents";
                 
                 var targetFileUrl = $"{targetUrl}/{Path.GetFileName(sourceFilePath)}";
                 using (var fs = new FileStream(sourceFilePath, FileMode.Open))

@@ -11,17 +11,33 @@
                                     <script type="text/javascript" src="/_layouts/15/sp.runtime.js"></script>
                                     <script type="text/javascript" src="/_layouts/15/sp.js"></script>
                                     <script src="dist/bundle.js"></script>
+                                    <link href="dist/demo.css" rel="stylesheet" />
                                 </asp:Content>
 
                                 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
-                                    <div>
-                                        <h4>Demos</h4>
-                                        <div>
-                                            <a style="cursor: pointer;" onclick="drive()">Drive me</a>
-                                            <a style="cursor: pointer;" onclick="state.init()">Use State</a>
-                                            <a style="cursor: pointer;" onclick="state.util.log()">Log using State</a>
+
+                                    <div class="demoContainer">
+                                        <div class='demoMenu'>
+                                            <h4>Demos</h4>
+                                            <div style="display: flex; flex-direction: column">
+                                                <a style="cursor: pointer;" onclick="drive()">Drive me</a>
+                                                <a style="cursor: pointer;" onclick="state.init()">Use State</a>
+                                                <a style="cursor: pointer;" onclick="state.util.log()">Log using State</a>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="spacer"></div>
+                                        <div class='demoWorkbench'>
+                                            <h4>Workbench</h4>
+                                            <div class="workbench">
+                                                The demo Area
+                                            </div>
                                         </div>
                                     </div>
+
+
+
                                 </asp:Content>
 
                                 <asp:Content ID="PageTitle" ContentPlaceHolderID="PlaceHolderPageTitle" runat="server">

@@ -50,8 +50,8 @@
     <TemplateFile Location="Layouts\JavaScript\demos\modules.js" />
     <TemplateFile Location="Layouts\JavaScript\demos\objectOrientations.html" />
     <TemplateFile Location="Layouts\JavaScript\demos\objectOrientations.js" />
-    <TemplateFile Location="Layouts\JavaScript\demos\promisesjQuery.html" />
-    <TemplateFile Location="Layouts\JavaScript\demos\promisesjQuery.js" />
+    <TemplateFile Location="Layouts\JavaScript\demos\promises.html" />
+    <TemplateFile Location="Layouts\JavaScript\demos\promises.js" />
     <TemplateFile Location="Layouts\JavaScript\demos\readJSON.html" />
     <TemplateFile Location="Layouts\JavaScript\demos\readJSON.js" />
     <TemplateFile Location="Layouts\JavaScript\demos\referencing.html" />

@@ -8,7 +8,7 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Demos.aspx.cs" Inherits="JSFundamentals.Layouts.JSFundamentals.Demos" DynamicMasterPageFile="~masterurl/default.master" %>
 
 <asp:Content ID="PageHead" ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
-    <script src="lib/jquery/jquery-3.1.1.min.js"></script>
+    <script src="lib/jquery/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="lib/moment/moment.js"></script>
     <script src="demos.aspx.js"></script>   
     <%--<script src="bundle/bundle.js"></script>--%>
@@ -34,7 +34,7 @@
             <a href="#" onclick="javascript:loadPage('demos/manipulate.html', this, true, null);">Manipulate DOM</a>         
             <a href="#" onclick="javascript:loadPage('demos/events.html', this, true, null);">jQuery Events</a>
             <a href="#" onclick="javascript:loadPage('demos/consumingServices.html', this, true, null);">Consuming Services</a>   
-            <a href="#" onclick="javascript:loadPage('demos/promisesjQuery.html', this, true, null);">jQuery Promises</a>
+            <a href="#" onclick="javascript:loadPage('demos/promises.html', this, true, null);">Promises</a>
             <a href="#" onclick="javascript:loadPage('demos/modules.html', this, true);">Modules</a>                             
             <a href="#" onclick="javascript:loadPage('demos/closures.html', this, true);">Closures</a>
             <a href="#" onclick="javascript:loadPage('demos/readJSON.html', this, true);">Consume JSON</a>

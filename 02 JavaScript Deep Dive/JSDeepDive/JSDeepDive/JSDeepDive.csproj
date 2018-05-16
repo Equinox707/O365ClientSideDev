@@ -140,8 +140,8 @@
     <Content Include="Layouts\JavaScript\demos\modules.js" />
     <Content Include="Layouts\JavaScript\demos\objectOrientations.html" />
     <Content Include="Layouts\JavaScript\demos\objectOrientations.js" />
-    <Content Include="Layouts\JavaScript\demos\promisesjQuery.html" />
-    <Content Include="Layouts\JavaScript\demos\promisesjQuery.js" />
+    <Content Include="Layouts\JavaScript\demos\promises.html" />
+    <Content Include="Layouts\JavaScript\demos\promises.js" />
     <Content Include="Layouts\JavaScript\demos\readJSON.html" />
     <Content Include="Layouts\JavaScript\demos\readJSON.js" />
     <Content Include="Layouts\JavaScript\demos\referencing.html" />

@@ -73,6 +73,7 @@
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{151bfaa4-42a8-400b-9c64-7799ebf20610}</SharePointProjectItemId>
     </None>
+    <None Include="package.json" />
     <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{c8e46317-454a-4fce-b4b3-9f790d9e717f}</PackageId>
@@ -80,15 +81,26 @@
     <None Include="Package\Package.Template.xml">
       <DependentUpon>Package.package</DependentUpon>
     </None>
+    <None Include="src\sass\demo.scss" />
+    <None Include="tsconfig.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <TypeScriptCompile Include="src\car.ts" />
+    <TypeScriptCompile Include="src\index.ts" />
+    <TypeScriptCompile Include="src\state.ts" />
+    <TypeScriptCompile Include="src\util.ts" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="CustomActions\CustomActions\Elements.xml" />
     <Content Include="Features\Feature1\Feature1.Template.xml">
       <DependentUpon>Feature1.feature</DependentUpon>
     </Content>
+    <Content Include="gulpfile.js" />
     <Content Include="Layouts\TypeScriptSolution\dist\bundle.js" />
+    <Content Include="Layouts\TypeScriptSolution\dist\demo.css" />
     <Content Include="Layouts\TypeScriptSolution\usingTS.aspx" />
+    <Content Include="src\simple.css" />
+    <Content Include="webpack.config.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

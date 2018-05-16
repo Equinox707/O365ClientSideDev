@@ -6,7 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "types":[]
+    "types":["sharepoint"]
   },
   "include": [
       "src/**/*"

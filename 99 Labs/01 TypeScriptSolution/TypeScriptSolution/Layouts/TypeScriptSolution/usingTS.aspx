@@ -16,7 +16,7 @@
                                 <asp:Content ID="Main" ContentPlaceHolderID="PlaceHolderMain" runat="server">
                                     <div>
                                         <h4>Demos</h4>
-                                        <div style="display: flex; flex-direction: column">
+                                        <div>
                                             <a style="cursor: pointer;" onclick="drive()">Drive me</a>
                                             <a style="cursor: pointer;" onclick="state.init()">Use State</a>
                                             <a style="cursor: pointer;" onclick="state.util.log()">Log using State</a>

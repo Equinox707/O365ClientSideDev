@@ -15,3 +15,7 @@ npm run update-spfx
 [Setup Environment](https://dev.office.com/sharepoint/docs/spfx/set-up-your-development-environment)
 
 [Getting Started](https://dev.office.com/sharepoint/docs/spfx/web-parts/get-started/build-a-hello-world-web-part)
+
+#
+
+https://github.com/SharePoint/sp-dev-docs/issues/1002

@@ -1,44 +1,46 @@
 {
-  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "$schema":
+    "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
   "version": "2.0",
   "bundles": {
     "share-point-lists-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/sharePointLists/SharePointListsWebPart.js",
-          "manifest": "./src/webparts/sharePointLists/SharePointListsWebPart.manifest.json"
+          "entrypoint":
+            "./lib/webparts/sharePointLists/SharePointListsWebPart.js",
+          "manifest":
+            "./src/webparts/sharePointLists/SharePointListsWebPart.manifest.json"
         }
       ]
     }
   },
   "externals": {
     "sp-init": {
-      "path": "https://integrationsonline.sharepoint.com/sites/spdevtest/_layouts/15/init.js",
+      "path":
+        "https://integrationsonline.sharepoint.com/sites/spdevtest/_layouts/15/init.js",
       "globalName": "$_global_init"
     },
     "microsoft-ajax": {
-      "path": "https://integrationsonline.sharepoint.com/sites/spdevtest/_layouts/15/MicrosoftAjax.js",
+      "path":
+        "https://integrationsonline.sharepoint.com/sites/spdevtest/_layouts/15/MicrosoftAjax.js",
       "globalName": "Sys",
-      "globalDependencies": [
-        "sp-init"
-      ]
+      "globalDependencies": ["sp-init"]
     },
     "sp-runtime": {
-      "path": "https://integrationsonline.sharepoint.com/sites/spdevtest/_layouts/15/SP.Runtime.js",
+      "path":
+        "https://integrationsonline.sharepoint.com/sites/spdevtest/_layouts/15/SP.Runtime.js",
       "globalName": "SP",
-      "globalDependencies": [
-        "microsoft-ajax"
-      ]
+      "globalDependencies": ["microsoft-ajax"]
     },
     "sharepoint": {
-      "path": "https://integrationsonline.sharepoint.com/sites/spdevtest/_layouts/15/SP.js",
+      "path":
+        "https://integrationsonline.sharepoint.com/sites/spdevtest/_layouts/15/SP.js",
       "globalName": "SP",
-      "globalDependencies": [
-        "sp-runtime"
-      ]
+      "globalDependencies": ["sp-runtime"]
     }
   },
   "localizedResources": {
-    "SharePointListsWebPartStrings": "lib/webparts/sharePointLists/loc/{locale}.js"
+    "SharePointListsWebPartStrings":
+      "lib/webparts/sharePointLists/loc/{locale}.js"
   }
 }

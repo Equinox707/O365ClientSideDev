@@ -1,6 +1,6 @@
 {
   "$schema": "https://dev.office.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "804b6620-0882-4863-9da9-f50ee31b1110",
+  "id": "7018a160-2ed1-49c0-8d6d-706217b43db2",
   "alias": "SharePointListsWebPart",
   "componentType": "WebPart",
 
@@ -16,8 +16,8 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "SharePointLists" },
-    "description": { "default": "SharePoint lists description" },
+    "title": { "default": "UseCSOM" },
+    "description": { "default": "Use CSOM to access SharePoint Lists" },
     "officeFabricIconFontName": "Page",
     "properties": {
       "description": "SharePointLists"

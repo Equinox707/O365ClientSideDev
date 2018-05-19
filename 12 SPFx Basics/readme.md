@@ -1,21 +1,23 @@
-# SPFx
+# Environment Setup
 
-## Update to latest version
+[Setup Environment](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-development-environment)
 
-Add to package.json scripts section
+## Install Dev Certificate
 
-"update-spfx": "npm install @microsoft/sp-client-base@latest @microsoft/sp-client-preview@latest --save & npm install @microsoft/sp-build-web@latest @microsoft/sp-module-interfaces@latest @microsoft/sp-webpart-workbench@latest --save-dev & npm prune & npm dedupe & gulp nuke & gulp"
+```
+gulp trust-dev-cert
+```
 
-use:
+## Workbench URL
 
-npm run update-spfx
+```
+http://sp2016/_layouts/15/workbench.aspx
+```
 
-## Labs
-
-[Setup Environment](https://dev.office.com/sharepoint/docs/spfx/set-up-your-development-environment)
-
-[Getting Started](https://dev.office.com/sharepoint/docs/spfx/web-parts/get-started/build-a-hello-world-web-part)
-
-#
+## Fix potential SSL Issue with pre 1.4.1 drop
 
 https://github.com/SharePoint/sp-dev-docs/issues/1002
+
+# First Steps
+
+[Getting Started](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/build-a-hello-world-web-part)

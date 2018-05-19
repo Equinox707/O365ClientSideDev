@@ -1,4 +1,4 @@
-## sp-fx-pn-pjs
+## use-pn-pjs
 
 This is where you include your WebPart documentation.
 

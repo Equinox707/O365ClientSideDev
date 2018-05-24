@@ -6,6 +6,9 @@
 <%-- The markup and script in the following Content element will be placed in the <head> of the page --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
     <script type="text/javascript" src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script type="application/javascript" src="../Scripts/polyfill.min.js"></script>
+    <script type="application/javascript" src="../Scripts/polyfill-fetch.min.js"></script>
+    <script type="application/javascript" src="../Scripts/polyfill-Map.min.js"></script>
     <SharePoint:ScriptLink name="sp.js" runat="server" OnDemand="true" LoadAfterUI="true" Localizable="false"/>
     <meta name="WebPartPageExpansion" content="full"/>
 

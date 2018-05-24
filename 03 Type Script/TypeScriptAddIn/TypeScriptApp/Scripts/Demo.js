@@ -1,3 +1,21 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -5,6 +23,33 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [0, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
 };
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
@@ -40,19 +85,19 @@ function basicVariables() {
         throw new Error(message);
     }
     // Not much else we can assign to these variables!
-    let u = undefined;
-    let n = null;
+    var u = undefined;
+    var n = null;
 }
 function useLetConst() {
     debugger;
     var index = 0;
     var array = ["a", "b", "c"];
-    for (let index = 0; index < array.length; index++) {
-        console.log("Inside for ..." + index);
-        console.log("Inside for ..." + array[index]);
+    for (var index_1 = 0; index_1 < array.length; index_1++) {
+        console.log("Inside for ..." + index_1);
+        console.log("Inside for ..." + array[index_1]);
     }
     console.log(index); // 0
-    const pi = 3.14;
+    var pi = 3.14;
     //pi = 2;
 }
 function stringFunctions() {
@@ -63,7 +108,7 @@ function stringFunctions() {
     var url = "http://server/" + category + "/" + productID;
     console.log(url);
     //Template Literals using Backticks
-    var tl = `http://server/${category}/${productID}`;
+    var tl = "http://server/" + category + "/" + productID;
     console.log(tl);
     //startswith
     var str = "To be, or not to be, that is the question.";
@@ -72,7 +117,7 @@ function stringFunctions() {
 }
 function useEnums() {
     debugger;
-    let VoucherStatus;
+    var VoucherStatus;
     (function (VoucherStatus) {
         VoucherStatus[VoucherStatus["draft"] = 0] = "draft";
         VoucherStatus[VoucherStatus["complete"] = 1] = "complete";
@@ -91,8 +136,8 @@ function useVoidAny() {
     function handleClick() {
         console.log("I don't return anything.");
     }
-    let likeadelegate = handleClick();
-    let notSure = 4;
+    var likeadelegate = handleClick();
+    var notSure = 4;
     notSure = "maybe a string instead";
     notSure = false; // okay, definitely a boolean
 }
@@ -101,24 +146,25 @@ function introArrays() {
     //declaration using type followed by []
     var customers = ["Alex", "Giro", "Sonja", "Soi", "David"];
     //declaration using generic array type
-    let nbrs = [3, 4, 5];
+    var nbrs = [3, 4, 5];
     console.log(customers.length + "Persons in Array");
     customers[2] = "Brunhilde";
     console.log("Person with index 1 is" + customers[1]);
     //for ... of
-    let list = [4, 5, 6];
-    for (let i in list) {
+    var list = [4, 5, 6];
+    for (var i in list) {
         console.log(i); // "0", "1", "2", -> index
     }
-    for (let i of list) {
+    for (var _i = 0, list_1 = list; _i < list_1.length; _i++) {
+        var i = list_1[_i];
         console.log(i); // "4", "5", "6"
     }
-    let source = [8, 4, 100, -5, 20];
+    var source = [8, 4, 100, -5, 20];
     // array destructuring
-    let [first, second, third] = source;
+    var first = source[0], second = source[1], third = source[2];
     // output: 100, 4, 8
     console.log(third, second, first);
-    let myArray = [1, ["hello"], true], [a, b, c] = myArray;
+    var myArray = [1, ["hello"], true], a = myArray[0], b = myArray[1], c = myArray[2];
     // output: 1, ['hello']
     console.log(a, b);
 }
@@ -137,20 +183,20 @@ function arrayHelpers() {
             result.push(item);
         }
     }
-    console.log(`There areas ${result.length} items in the Array`);
+    console.log("There areas " + result.length + " items in the Array");
     //forEach
-    fruits.forEach(fruit => {
+    fruits.forEach(function (fruit) {
         fruit.quantity++;
     });
     //find
-    var cherry = fruits.find(fruit => fruit.name === "cherries");
+    var cherry = fruits.find(function (fruit) { return fruit.name === "cherries"; });
     console.log(cherry);
     //filter
     //var cheap = fruits.filter((item) => { return item.price < 6 });
-    var cheap = fruits.filter(item => item.price < 6);
+    var cheap = fruits.filter(function (item) { return item.price < 6; });
     console.log(cheap);
     //reduce
-    var fruitNames = fruits.reduce((prevArray, fruit) => {
+    var fruitNames = fruits.reduce(function (prevArray, fruit) {
         prevArray.push({ Name: fruit.name, Price: fruit.price });
         return prevArray;
     }, []);
@@ -164,10 +210,10 @@ function arrayHelpers() {
 }
 function objectsBasics() {
     debugger;
-    let myperson = new Object(); //old style
-    let person = { Id: 1, Name: "Alexander" };
+    var myperson = new Object(); //old style
+    var person = { Id: 1, Name: "Alexander" };
     person.dance = function () { console.log("I am dancing"); };
-    person.walk = () => console.log(`I am ${person.Name} and I'm walking`);
+    person.walk = function () { return console.log("I am " + person.Name + " and I'm walking"); };
     person.walk();
 }
 function enhancedObjectLiterals() {
@@ -184,9 +230,9 @@ function enhancedObjectLiterals() {
         return {
             // with property value shorthand syntax, you can omit the property
             // value if key matches variable name
-            make,
-            model,
-            value
+            make: make,
+            model: model,
+            value: value
         };
     }
     //Method definition shorthand
@@ -200,7 +246,7 @@ function enhancedObjectLiterals() {
     function getBus(make, model, value) {
         return {
             // Method definition shorthand syntax omits `function` keyword & colon
-            depreciate() {
+            depreciate: function () {
                 this.value -= 2500;
             }
         };
@@ -209,23 +255,27 @@ function enhancedObjectLiterals() {
 function destructuring() {
     debugger;
     // object pattern matching
-    let { lName, fName } = { fName: "John", lName: "Doe" };
+    var _a = { fName: "John", lName: "Doe" }, lName = _a.lName, fName = _a.fName;
     // output: Doe, John
     console.log(lName + ", " + fName);
     var rect = { x: 0, y: 10, width: 15, height: 20 };
     // Destructuring assignment
-    var { x, y, width, height } = rect;
+    var x = rect.x, y = rect.y, width = rect.width, height = rect.height;
     console.log(x, y, width, height); // 0,10,15,20
     // Destructuring using REST Param
-    var _a = { w: 1, x: 2, y: 3, z: 4 }, { w, x } = _a, remaining = __rest(_a, ["w", "x"]);
+    var _b = { w: 1, x: 2, y: 3, z: 4 }, w = _b.w, x = _b.x, remaining = __rest(_b, ["w", "x"]);
     console.log(w, x, remaining); // 1, 2, {y:3,z:4}
 }
 function restParams() {
     debugger;
-    function playLotto(name, ...bets) {
-        console.log(`${name} is playing the following lottery numbers: `);
-        bets.forEach((nbr) => console.log(nbr));
-        bets.forEach(nbr => console.log(nbr));
+    function playLotto(name) {
+        var bets = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            bets[_i - 1] = arguments[_i];
+        }
+        console.log(name + " is playing the following lottery numbers: ");
+        bets.forEach(function (nbr) { return console.log(nbr); });
+        bets.forEach(function (nbr) { return console.log(nbr); });
         bets.forEach(function (item) {
             console.log(item);
         });
@@ -234,7 +284,11 @@ function restParams() {
     playLotto("Kurt", 3, 12, 45, 48, 44, 33, 12);
     var shop = new Array();
     shop.category = new Map();
-    shop.add = function (categoryName, ...products) {
+    shop.add = function (categoryName) {
+        var products = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            products[_i - 1] = arguments[_i];
+        }
         var row = shop.category[categoryName];
         if (row == undefined) {
             shop.category.set(categoryName, new Array());
@@ -251,8 +305,8 @@ function restParams() {
 }
 function valref() {
     debugger;
-    let person = { Id: 1, Name: "Alexander" };
-    let myNumber = 100;
+    var person = { Id: 1, Name: "Alexander" };
+    var myNumber = 100;
     function passArgs(nbr, pers) {
         nbr += 1;
         pers.Name = "Alex";
@@ -261,14 +315,17 @@ function valref() {
     console.log("result for myNumber & person:", myNumber, person);
     myNumber = 500;
     person.name = "";
-    passArgs(myNumber, Object.assign({}, person));
+    passArgs(myNumber, __assign({}, person));
     console.log("result for myNumber & person:", myNumber, person);
 }
 function basicClasses() {
     debugger;
-    class Voucher {
-    }
-    let v = new Voucher();
+    var Voucher = /** @class */ (function () {
+        function Voucher() {
+        }
+        return Voucher;
+    }());
+    var v = new Voucher();
     v.ID = 0;
     v.Text = "Demo Voucher";
     console.log("vouchertext is:" + v["Text"]);
@@ -283,79 +340,93 @@ function basicClasses() {
     var vA = { ID: 2, Text: "Amazon", Amount: 44, Date: new Date() };
     vouchers.push(vA);
     for (var i = 0; i < vouchers.length; i++) {
-        let v = vouchers[i];
-        console.log(v.Text);
+        var v_1 = vouchers[i];
+        console.log(v_1.Text);
     }
-    for (let v in vouchers) {
-        if (vouchers.hasOwnProperty(v)) {
-            console.log(v);
+    for (var v_2 in vouchers) {
+        if (vouchers.hasOwnProperty(v_2)) {
+            console.log(v_2);
         }
     }
     //try changing: let v -> var v ... think why
-    for (let v of vouchers) {
-        console.log(v.Text);
+    for (var _i = 0, vouchers_1 = vouchers; _i < vouchers_1.length; _i++) {
+        var v_3 = vouchers_1[_i];
+        console.log(v_3.Text);
     }
 }
 function classesConstructor() {
     debugger;
-    class Person {
-        constructor(Name, Alive) {
+    var Person = /** @class */ (function () {
+        function Person(Name, Alive) {
             this.name = Name;
             this.alive = Alive;
         }
-    }
-    let jim = new Person("Jim", true);
+        return Person;
+    }());
+    var jim = new Person("Jim", true);
     console.log(jim.name + " is alive: " + jim.alive);
-    class Bill {
-        constructor(Text = "", Paid = false) {
+    var Bill = /** @class */ (function () {
+        function Bill(Text, Paid) {
+            if (Text === void 0) { Text = ""; }
+            if (Paid === void 0) { Paid = false; }
             this.text = Text;
             this.paid = Paid;
         }
-    }
+        return Bill;
+    }());
     var b1 = new Bill("Car Purchase");
     var b2 = new Bill("Rösti für Freundin", true);
     console.log("b1 with Text: " + b1.text + " was " + b1.paid);
     console.log("b2 with Text: " + b2.text + " was " + b2.paid);
-    class Dog {
-        constructor(name, breed) {
+    var Dog = /** @class */ (function () {
+        function Dog(name, breed) {
             this.name = name;
             this.breed = breed;
         }
-        barkName() {
+        Dog.prototype.barkName = function () {
             return "Wuff, my name is " + this.name + ", I am a " + this.breed;
-        }
-        sayName() {
+        };
+        Dog.prototype.sayName = function () {
             return "Wuff, my name is " + name; // + ", I am a " + breed;
-        }
-    }
-    let dog = new Dog("Soi", "Whippet");
+        };
+        return Dog;
+    }());
+    var dog = new Dog("Soi", "Whippet");
     console.log(dog.barkName());
     console.log(dog.sayName());
     console.log(dog.breed);
-    class Smurf {
-        constructor(name) {
+    var Smurf = /** @class */ (function () {
+        function Smurf(name) {
             if (name.length < 1) {
                 throw new Error("Empty name!");
             }
             this.name = name;
         }
-    }
+        return Smurf;
+    }());
     var smurf = new Smurf("Daniel");
     //smurf.name = "Dan"; // Error! 'name' is read-only.
 }
 function getSet() {
     debugger;
-    let passcode = "secret passcode";
-    class Citzien {
-        get fullName() {
-            return this._fullName;
+    var passcode = "secret passcode";
+    var Citzien = /** @class */ (function () {
+        function Citzien() {
         }
-        set fullName(newName) {
-            this._fullName = `Citizen ${newName}`;
-            console.log("name changed to " + newName);
-        }
-    }
-    let employee = new Citzien();
+        Object.defineProperty(Citzien.prototype, "fullName", {
+            get: function () {
+                return this._fullName;
+            },
+            set: function (newName) {
+                this._fullName = "Citizen " + newName;
+                console.log("name changed to " + newName);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return Citzien;
+    }());
+    var employee = new Citzien();
     employee.fullName = "Bob Smith";
     if (employee.fullName) {
         console.log(employee.fullName);
@@ -363,65 +434,75 @@ function getSet() {
 }
 function inheritance() {
     debugger;
-    class Dog {
-        constructor(name) {
+    var Dog = /** @class */ (function () {
+        function Dog(name) {
             this.name = name;
             this.speed = "with 40 km/h";
         }
-        move(meters) {
+        Dog.prototype.move = function (meters) {
             console.log(this.name + " moved " + meters + " meters " + this.speed);
+        };
+        return Dog;
+    }());
+    var Sighthound = /** @class */ (function (_super) {
+        __extends(Sighthound, _super);
+        function Sighthound(name) {
+            var _this = _super.call(this, name) || this;
+            _this.speed = "with up to 110 km/h";
+            return _this;
         }
-    }
-    class Sighthound extends Dog {
-        constructor(name) {
-            super(name);
-            this.speed = "with up to 110 km/h";
-        }
-        move(meters = 500) {
+        Sighthound.prototype.move = function (meters) {
+            if (meters === void 0) { meters = 500; }
             console.log("Running ..." + meters + "m. " + this.speed);
-            super.move(meters);
-        }
-    }
+            _super.prototype.move.call(this, meters);
+        };
+        return Sighthound;
+    }(Dog));
     var dog = new Dog("Bello");
     dog.move(50);
     var hound = new Sighthound("Soi");
     hound.move();
     hound.move(1000);
     //Protected Properties
-    class Person {
-        constructor(name) {
+    var Person = /** @class */ (function () {
+        function Person(name) {
             this.name = name;
         }
-    }
-    class Employee extends Person {
-        constructor(name, department) {
-            super(name); //base c#
-            this.department = department;
+        return Person;
+    }());
+    var Employee = /** @class */ (function (_super) {
+        __extends(Employee, _super);
+        function Employee(name, department) {
+            var _this = _super.call(this, name) || this;
+            _this.department = department;
+            return _this;
         }
-        introduceSelf() {
-            return `Hello, my name is ${this.name} and I work in ${this.department} department.`;
-        }
-    }
-    let howard = new Employee("Howard", "Sales");
+        Employee.prototype.introduceSelf = function () {
+            return "Hello, my name is " + this.name + " and I work in " + this.department + " department.";
+        };
+        return Employee;
+    }(Person));
+    var howard = new Employee("Howard", "Sales");
     console.log(howard.introduceSelf());
     //console.log(howard.name); // error
 }
 function staticProperties() {
     debugger;
-    class Grid {
-        constructor(scale) {
+    var Grid = /** @class */ (function () {
+        function Grid(scale) {
             this.scale = scale;
         }
-        static sayName() {
+        Grid.sayName = function () {
             return "I am a Grid";
-        }
-        calculateDistanceFromOrigin(point) {
+        };
+        Grid.prototype.calculateDistanceFromOrigin = function (point) {
             var xDist = point.x - Grid.origin.x;
             var yDist = point.y - Grid.origin.y;
             return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
-        }
-    }
-    Grid.origin = { x: 0, y: 0 };
+        };
+        Grid.origin = { x: 0, y: 0 };
+        return Grid;
+    }());
     console.log(Grid.origin);
     console.log(Grid.sayName());
     var grid = new Grid(3);
@@ -431,7 +512,7 @@ function staticProperties() {
 }
 function typedFunctions() {
     debugger;
-    let addFunction = function (x, y) {
+    var addFunction = function (x, y) {
         return x + y;
     };
     var result = addFunction(10, 20);
@@ -449,13 +530,18 @@ function functionParameters() {
     console.log(buildName("Bob"));
     console.log(buildName("Giro", "Galgohead"));
     //default param
-    function getAddress(street, city = "Vienna") {
-        return `${street}, ${city}`;
+    function getAddress(street, city) {
+        if (city === void 0) { city = "Vienna"; }
+        return street + ", " + city;
     }
     console.log(getAddress("Neuwaldegger Straße"));
     console.log(getAddress("Seestraße", "Idolsberg"));
     //rest param
-    function buildFruitBucket(fruitType, ...fruits) {
+    function buildFruitBucket(fruitType) {
+        var fruits = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            fruits[_i - 1] = arguments[_i];
+        }
         console.log("The following " + fruitType + " are in the bucket " + fruits.join(", "));
     }
     buildFruitBucket("Beeren", "Himbeeren", "Brombeeren", "Goji Beeren");
@@ -466,33 +552,42 @@ function arrowFunctions() {
         return width * height;
     };
     //Implemented as Lambda or "Arrow" Function
-    var rectangleFunctionArrow = (width, height) => height * width;
-    let result = rectangleFunctionArrow(10, 22);
+    var rectangleFunctionArrow = function (width, height) {
+        return height * width;
+    };
+    var result = rectangleFunctionArrow(10, 22);
     console.log(result);
 }
 // Interfaces
 function interfacesBasics() {
     debugger;
-    class Knight {
-        constructor() {
+    var Knight = /** @class */ (function () {
+        function Knight() {
             this.weapon = "Battle Axe";
         }
-        sayName() {
+        Knight.prototype.sayName = function () {
             return this.name;
+        };
+        return Knight;
+    }());
+    var Robber = /** @class */ (function () {
+        function Robber() {
         }
-    }
-    class Robber {
-        sayName() {
+        Robber.prototype.sayName = function () {
             return this.name;
-        }
-    }
-    let rob = new Knight();
+        };
+        return Robber;
+    }());
+    var rob = new Knight();
     rob.name = "Rob Stark";
 }
 function interfacesNullability() {
     debugger;
-    class DeliveryManager {
-    }
+    var DeliveryManager = /** @class */ (function () {
+        function DeliveryManager() {
+        }
+        return DeliveryManager;
+    }());
 }
 function interfacesObjectLiterals() {
     debugger;
@@ -505,45 +600,47 @@ function interfacesFunctions() {
         console.log(labelledObj.label);
         //console.log(labelledObj.size);
     }
-    let myObj = { size: 10, label: "Size 10 Object" };
+    var myObj = { size: 10, label: "Size 10 Object" };
     printLabel(myObj);
     var mySearch;
     mySearch = function (source, subString) {
         return false;
     };
-    mySearch = (source, subString) => false;
+    mySearch = function (source, subString) { return false; };
 }
 function genericFunctions() {
     debugger;
     function concat(arg) {
-        let result = "";
-        for (var m of arg) {
+        var result = "";
+        for (var _i = 0, arg_1 = arg; _i < arg_1.length; _i++) {
+            var m = arg_1[_i];
             result += m.toString() + ", ";
         }
         return result;
     }
-    let stringArr = ["Alex", "Giro", "Soi the Whippet"];
+    var stringArr = ["Alex", "Giro", "Soi the Whippet"];
     console.log(concat(stringArr));
-    let nbrArr = [100, 201, 322];
+    var nbrArr = [100, 201, 322];
     //let nbrArr: Array<number> = [100, 201, 322, "geht nicht weil string"];
     console.log(concat(nbrArr));
 }
 function genericClassesInterfaces() {
-    class Catalog {
-        constructor() {
+    var Catalog = /** @class */ (function () {
+        function Catalog() {
             this.items = new Array();
         }
-        addItem(newItem) {
+        Catalog.prototype.addItem = function (newItem) {
             this.items.push(newItem);
-        }
-        getNewestItem() {
+        };
+        Catalog.prototype.getNewestItem = function () {
             return this.items[this.items.length - 1];
-        }
-        getAllItems() {
+        };
+        Catalog.prototype.getAllItems = function () {
             return this.items;
-        }
-    }
-    let cat = new Catalog();
+        };
+        return Catalog;
+    }());
+    var cat = new Catalog();
     var v = {
         ID: 1,
         Text: "Media Markt",
@@ -555,19 +652,20 @@ function genericClassesInterfaces() {
     cat.addItem(v);
 }
 function genericConstraints() {
-    class Catalog {
-        constructor() {
+    var Catalog = /** @class */ (function () {
+        function Catalog() {
             this.items = new Array();
         }
-        getAllItems() {
+        Catalog.prototype.getAllItems = function () {
             return this.items;
-        }
-    }
+        };
+        return Catalog;
+    }());
 }
 function usingPromises() {
     function doAsyncTask(succeed) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
                 console.log("Async Task Complete");
                 if (succeed) {
                     resolve(JSON.stringify({ Id: 1, Person: "Hugo Wolf" }));
@@ -579,8 +677,10 @@ function usingPromises() {
         });
     }
     doAsyncTask(true)
-        .then(data => console.log("Date received from Async Task", JSON.parse(data)))
-        .catch(err => console.log("Err:", err));
+        .then(function (data) {
+        return console.log("Date received from Async Task", JSON.parse(data));
+    })
+        .catch(function (err) { return console.log("Err:", err); });
 }
 function usingPromises2() {
     var query = "http://sp2016/_api/web/title";
@@ -593,10 +693,10 @@ function usingPromises2() {
             "accept": "application/json;odata=verbose",
             "content-type": "application/json;odata=verbose"
         },
-        success(data) {
+        success: function (data) {
             console.log(data.d.results);
         },
-        error(msg) {
+        error: function (msg) {
             console.log("error calling service", msg);
             console.log(msg);
         }
@@ -610,33 +710,43 @@ function usingPromises2() {
             "accept": "application/json;odata=verbose",
             "content-type": "application/json;odata=verbose"
         }
-    }).then(data => {
+    }).then(function (data) {
         console.log(data);
-    }).fail(err => {
+    }).fail(function (err) {
         console.log(err);
     });
 }
 var ratesQuery = "http://data.fixer.io/api/latest?access_key=6c36c303e33169dd7102897259fc93be";
 function usingFetch() {
-    fetch(ratesQuery).then(response => {
+    fetch(ratesQuery).then(function (response) {
         console.log("Data received from fetch", response);
         return response.json();
-    }).then(data => {
+    }).then(function (data) {
         console.log(data);
     });
 }
 function usingFetchAwait() {
     function getRates() {
-        return __awaiter(this, void 0, void 0, function* () {
-            let response = yield fetch(ratesQuery);
-            let reates = yield response.json();
-            console.log("Data received using fetch - await", reates);
+        return __awaiter(this, void 0, void 0, function () {
+            var response, reates;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, fetch(ratesQuery)];
+                    case 1:
+                        response = _a.sent();
+                        return [4 /*yield*/, response.json()];
+                    case 2:
+                        reates = _a.sent();
+                        console.log("Data received using fetch - await", reates);
+                        return [2 /*return*/];
+                }
+            });
         });
     }
     getRates();
 }
 function postFetch() {
-    const body = {
+    var body = {
         description: "Fetch API Post example",
         public: true,
         files: {
@@ -649,40 +759,43 @@ function postFetch() {
         method: "post",
         body: JSON.stringify(body)
     })
-        .then(response => {
+        .then(function (response) {
         console.log("Created Gist", response.json());
     });
 }
 var SPDemos;
 (function (SPDemos) {
-    class TopicMM {
-    }
+    var TopicMM = /** @class */ (function () {
+        function TopicMM() {
+        }
+        return TopicMM;
+    }());
     SPDemos.TopicMM = TopicMM;
-    class NewsService {
-        constructor() {
-            this.errorHandler = err => {
+    var NewsService = /** @class */ (function () {
+        function NewsService() {
+            this.errorHandler = function (err) {
                 console.log("REST error:");
                 console.log(err);
             };
             this.hostUrl = decodeURIComponent(this.getQueryStringParameter("SPHostUrl"));
             this.appUrl = decodeURIComponent(this.getQueryStringParameter("SPAppWebUrl"));
             this.queryBase = this.appUrl + "/_api/SP.AppContextSite(@target)/";
-            this.queryTarget = `&@target='${this.hostUrl}'`;
+            this.queryTarget = "&@target='" + this.hostUrl + "'";
         }
-        getQueryStringParameter(paramToRetrieve) {
-            const params = document.URL.split("?")[1].split("&");
-            for (let i = 0; i < params.length; i = i + 1) {
-                const singleParam = params[i].split("=");
+        NewsService.prototype.getQueryStringParameter = function (paramToRetrieve) {
+            var params = document.URL.split("?")[1].split("&");
+            for (var i = 0; i < params.length; i = i + 1) {
+                var singleParam = params[i].split("=");
                 if (singleParam[0] == paramToRetrieve)
                     return singleParam[1];
             }
-        }
-        getNews() {
+        };
+        NewsService.prototype.getNews = function () {
             var query = this.queryBase +
                 "web/lists/getbytitle('news')/GetItems(query=@v1)?@v1={'ViewXml':'<View><Query></Query></View>'}" +
                 this.queryTarget;
             var digest = $("#__REQUESTDIGEST").val();
-            return new Promise((resolve, reject) => {
+            return new Promise(function (resolve, reject) {
                 $.ajax({
                     type: "POST",
                     url: query,
@@ -692,10 +805,10 @@ var SPDemos;
                         "content-type": "application/json;odata=verbose",
                         "X-RequestDigest": digest
                     },
-                    success(data) {
+                    success: function (data) {
                         resolve(JSON.stringify(data.d.results));
                     },
-                    error(msg) {
+                    error: function (msg) {
                         console.log("error calling service", msg);
                         console.log(msg);
                         reject(msg);
@@ -717,30 +830,31 @@ var SPDemos;
                 //        resolve(JSON.stringify({ Id: 1, Person: "Hugo Wolf" }));
                 //    });
             });
-        }
-    }
+        };
+        return NewsService;
+    }());
     SPDemos.NewsService = NewsService;
 })(SPDemos || (SPDemos = {}));
 function loadNews() {
     debugger;
-    const service = new SPDemos.NewsService();
-    service.getNews().then(data => {
+    var service = new SPDemos.NewsService();
+    service.getNews().then(function (data) {
         console.log("data received from service: ", data);
     });
 }
 function loadNewsJsom() {
     debugger;
-    const ctx = SP.ClientContext.get_current();
-    const web = ctx.get_web();
-    const lists = web.get_lists();
-    const listNews = lists.getByTitle("News");
+    var ctx = SP.ClientContext.get_current();
+    var web = ctx.get_web();
+    var lists = web.get_lists();
+    var listNews = lists.getByTitle("News");
     var firstNews = listNews.getItemById(1);
     ctx.load(firstNews);
-    ctx.executeQueryAsync(() => {
+    ctx.executeQueryAsync(function () {
         var mmField = firstNews.get_item("Topic");
-        console.log(`title of Managed Metadata field is ${mmField.Label}`);
-    }, (sender, args) => {
-        console.log(`Request failed. ${args.get_message()}`);
+        console.log("title of Managed Metadata field is " + mmField.Label);
+    }, function (sender, args) {
+        console.log("Request failed. " + args.get_message());
     });
 }
 //# sourceMappingURL=Demo.js.map

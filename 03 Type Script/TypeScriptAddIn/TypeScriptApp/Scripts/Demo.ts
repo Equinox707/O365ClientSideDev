@@ -1,4 +1,6 @@
-﻿function basicVariables() {
+﻿
+
+function basicVariables() {
     debugger;
 
     var myname: string = "alexander";

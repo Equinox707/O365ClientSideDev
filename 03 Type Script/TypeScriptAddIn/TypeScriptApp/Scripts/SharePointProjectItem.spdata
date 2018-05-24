@@ -13,5 +13,8 @@
     <ProjectItemFile Source="Demo.js" Target="Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="Demo.js.map" Target="Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="Demo.ts" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="polyfill.min.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="polyfill-fetch.min.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="polyfill-Map.min.js" Target="Scripts\" Type="ElementFile" />
   </Files>
 </ProjectItem>

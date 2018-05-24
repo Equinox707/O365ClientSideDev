@@ -12,5 +12,8 @@
     <File Path="Scripts\Demo.js" Url="Scripts/Demo.js" ReplaceContent="TRUE" />
     <File Path="Scripts\Demo.js.map" Url="Scripts/Demo.js.map" ReplaceContent="TRUE" />
     <File Path="Scripts\Demo.ts" Url="Scripts/Demo.ts" ReplaceContent="TRUE" />
+    <File Path="Scripts\polyfill.min.js" Url="Scripts/polyfill.min.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\polyfill-fetch.min.js" Url="Scripts/polyfill-fetch.min.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\polyfill-Map.min.js" Url="Scripts/polyfill-Map.min.js" ReplaceContent="TRUE" />
   </Module>
 </Elements>

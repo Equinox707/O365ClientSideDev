@@ -86,6 +86,9 @@
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\polyfill-fetch.min.js" />
+    <Content Include="Scripts\polyfill-Map.min.js" />
+    <Content Include="Scripts\polyfill.min.js" />
     <Content Include="Scripts\_references.js" />
   </ItemGroup>
   <ItemGroup>

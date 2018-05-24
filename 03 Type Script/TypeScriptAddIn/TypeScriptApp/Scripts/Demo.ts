@@ -10,7 +10,6 @@
     var rand = Math.random();
 
     var numbers: number[] = [];
-    var othernbrs: number[] = new Array<number>();
     numbers[0] = 1;
     //numbers.push("two"); // compile-time error
 
@@ -36,7 +35,7 @@
     let n: null = null;
 }
 
-function useLetConst() {
+function useLetConst() { 
     debugger;
 
     var index: number = 0;
@@ -48,9 +47,6 @@ function useLetConst() {
     console.log(index); // 0
     const pi = 3.14;
     //pi = 2;
-
-    const p = { name: "hugo" };
-    p.name = "hubgobert";
 }
 
 function stringFunctions() {
@@ -162,9 +158,6 @@ function arrayHelpers() {
     console.log(`There areas ${result.length} items in the Array`);
 
     //forEach
-
-    fruits.forEach(item => item.quantity++);
-
     fruits.forEach(fruit => {
         fruit.quantity++;
     });
@@ -196,8 +189,6 @@ function arrayHelpers() {
 function objectsBasics() {
     debugger;
     let myperson = new Object(); //old style
-
-
     let person: any = { Id: 1, Name: "Alexander" };
     person.dance = function () { console.log("I am dancing") };
     person.walk = () => console.log(`I am ${person.Name} and I'm walking`);
@@ -324,8 +315,7 @@ function valref() {
     console.log("result for myNumber & person:", myNumber, person);
 
     myNumber = 500;
-    person.name = "Josef";
-
+    person.name = ""
     passArgs(myNumber, { ...person });
     console.log("result for myNumber & person:", myNumber, person);
 }
@@ -389,23 +379,6 @@ function classesConstructor() {
         }
     }
 
-    class Dog {
-
-        constructor(private name: string, public breed: string) { }
-
-        barkName() {
-            return "Wuff, my name is " + this.name + ", I am a " + this.breed;
-        }
-        sayName() {
-            return "Wuff, my name is " + name; // + ", I am a " + breed;
-        }
-    }
-
-    let dog = new Dog("Soi", "Whippet");
-    console.log(dog.barkName());
-    console.log(dog.sayName());
-    console.log(dog.breed);
-
     let jim = new Person("Jim", true);
     console.log(jim.name + " is alive: " + jim.alive);
 
@@ -425,6 +398,22 @@ function classesConstructor() {
     console.log("b1 with Text: " + b1.text + " was " + b1.paid);
     console.log("b2 with Text: " + b2.text + " was " + b2.paid);
 
+    class Dog {
+
+        constructor(private name: string, public breed: string) { }
+
+        barkName() {
+            return "Wuff, my name is " + this.name + ", I am a " + this.breed;
+        }
+        sayName() {
+            return "Wuff, my name is " + name; // + ", I am a " + breed;
+        }
+    }
+
+    let dog = new Dog("Soi", "Whippet");
+    console.log(dog.barkName());
+    console.log(dog.sayName());
+    console.log(dog.breed);
 
     class Smurf {
         readonly name: string;
@@ -828,8 +817,7 @@ function usingPromises() {
         .catch(err => console.log("Err:", err));
 }
 
-function useAjax() {
-
+function usingPromises2() {
     var query = "http://sp2016/_api/web/title";
 
     //Callbacks
@@ -860,20 +848,21 @@ function useAjax() {
             "content-type": "application/json;odata=verbose"
         }
     }).then(data => {
-            console.log(data);
-        }
-    ).fail(err => {
-        console.log(err);
-    });
+        console.log(data);
+    }
+        ).fail(err => {
+            console.log(err);
+        });
 }
+
 
 var ratesQuery = "http://data.fixer.io/api/latest?access_key=6c36c303e33169dd7102897259fc93be";
 
 function usingFetch() {
     fetch(ratesQuery).then(response => {
         console.log("Data received from fetch", response);
-            return response.json();
-        }
+        return response.json();
+    }
     ).then(data => {
         console.log(data);
     });

@@ -24,7 +24,6 @@ function basicVariables() {
     var dogWeight = 25.4;
     var rand = Math.random();
     var numbers = [];
-    var othernbrs = new Array();
     numbers[0] = 1;
     //numbers.push("two"); // compile-time error
     var isCustomer = false;
@@ -55,8 +54,6 @@ function useLetConst() {
     console.log(index); // 0
     const pi = 3.14;
     //pi = 2;
-    const p = { name: "hugo" };
-    p.name = "hubgobert";
 }
 function stringFunctions() {
     debugger;
@@ -142,7 +139,6 @@ function arrayHelpers() {
     }
     console.log(`There areas ${result.length} items in the Array`);
     //forEach
-    fruits.forEach(item => item.quantity++);
     fruits.forEach(fruit => {
         fruit.quantity++;
     });
@@ -264,7 +260,7 @@ function valref() {
     passArgs(myNumber, person);
     console.log("result for myNumber & person:", myNumber, person);
     myNumber = 500;
-    person.name = "Josef";
+    person.name = "";
     passArgs(myNumber, Object.assign({}, person));
     console.log("result for myNumber & person:", myNumber, person);
 }
@@ -308,6 +304,18 @@ function classesConstructor() {
             this.alive = Alive;
         }
     }
+    let jim = new Person("Jim", true);
+    console.log(jim.name + " is alive: " + jim.alive);
+    class Bill {
+        constructor(Text = "", Paid = false) {
+            this.text = Text;
+            this.paid = Paid;
+        }
+    }
+    var b1 = new Bill("Car Purchase");
+    var b2 = new Bill("Rösti für Freundin", true);
+    console.log("b1 with Text: " + b1.text + " was " + b1.paid);
+    console.log("b2 with Text: " + b2.text + " was " + b2.paid);
     class Dog {
         constructor(name, breed) {
             this.name = name;
@@ -324,18 +332,6 @@ function classesConstructor() {
     console.log(dog.barkName());
     console.log(dog.sayName());
     console.log(dog.breed);
-    let jim = new Person("Jim", true);
-    console.log(jim.name + " is alive: " + jim.alive);
-    class Bill {
-        constructor(Text = "", Paid = false) {
-            this.text = Text;
-            this.paid = Paid;
-        }
-    }
-    var b1 = new Bill("Car Purchase");
-    var b2 = new Bill("Rösti für Freundin", true);
-    console.log("b1 with Text: " + b1.text + " was " + b1.paid);
-    console.log("b2 with Text: " + b2.text + " was " + b2.paid);
     class Smurf {
         constructor(name) {
             if (name.length < 1) {
@@ -586,7 +582,7 @@ function usingPromises() {
         .then(data => console.log("Date received from Async Task", JSON.parse(data)))
         .catch(err => console.log("Err:", err));
 }
-function useAjax() {
+function usingPromises2() {
     var query = "http://sp2016/_api/web/title";
     //Callbacks
     $.ajax({

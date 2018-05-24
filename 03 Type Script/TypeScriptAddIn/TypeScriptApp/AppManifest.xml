@@ -3,8 +3,8 @@
 <App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
      Name="TypeScriptApp"
      ProductID="{2bddbeb0-8b59-45ce-9ef9-1301f47436fd}"
-     Version="1.0.0.0"
-     SharePointMinVersion="16.0.0.0"
+     Version="1.0.0.1"
+     SharePointMinVersion="15.0.0.0"
 >
   <Properties>
     <Title>TypeScriptApp</Title>

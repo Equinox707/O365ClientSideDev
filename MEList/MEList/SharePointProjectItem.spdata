@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Type="ElementManifest" />
+    <ProjectItemFile Source="package.json" Type="ElementFile" />
+    <ProjectItemFile Source="tsconfig.json" Type="ElementFile" />
+    <ProjectItemFile Source="config\config.js" Target="config\" Type="ElementFile" />
+    <ProjectItemFile Source="config\hashing.js" Target="config\" Type="ElementFile" />
+    <ProjectItemFile Source="config\helpers.js" Target="config\" Type="ElementFile" />
+    <ProjectItemFile Source="config\karma-test-shim.js" Target="config\" Type="ElementFile" />
+    <ProjectItemFile Source="config\karma.conf.js" Target="config\" Type="ElementFile" />
+    <ProjectItemFile Source="config\webpack.common.js" Target="config\" Type="ElementFile" />
+    <ProjectItemFile Source="config\webpack.dev.js" Target="config\" Type="ElementFile" />
+    <ProjectItemFile Source="app\app-mixins.scss" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="app\app.module.ts" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="app\main.ts" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="app\polyfills.ts" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="app\sharepoint-reset.scss" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="app\styles.scss" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="app\vendor.ts" Target="app\" Type="ElementFile" />
+    <ProjectItemFile Source="app\components\app.component.ts" Target="app\components\" Type="ElementFile" />
+    <ProjectItemFile Source="app\components\app.html" Target="app\components\" Type="ElementFile" />
+    <ProjectItemFile Source="app\components\app.scss" Target="app\components\" Type="ElementFile" />
+    <ProjectItemFile Source="app\components\tasklist\index.ts" Target="app\components\tasklist\" Type="ElementFile" />
+    <ProjectItemFile Source="app\components\tasklist\tasklist.module.ts" Target="app\components\tasklist\" Type="ElementFile" />
+    <ProjectItemFile Source="app\components\tasklist\tasklist-root\tasklist.component.ts" Target="app\components\tasklist\tasklist-root\" Type="ElementFile" />
+    <ProjectItemFile Source="app\components\tasklist\tasklist-root\tasklist.html" Target="app\components\tasklist\tasklist-root\" Type="ElementFile" />
+    <ProjectItemFile Source="app\components\tasklist\tasklist-root\tasklist.scss" Target="app\components\tasklist\tasklist-root\" Type="ElementFile" />
+    <ProjectItemFile Source="app\shared\components\index.ts" Target="app\shared\components\" Type="ElementFile" />
+    <ProjectItemFile Source="app\shared\components\shared-components.module.ts" Target="app\shared\components\" Type="ElementFile" />
+    <ProjectItemFile Source="app\shared\models\task.ts" Target="app\shared\models\" Type="ElementFile" />
+    <ProjectItemFile Source="app\shared\services\task.service.ts" Target="app\shared\services\" Type="ElementFile" />
+    <ProjectItemFile Source="app\shared\services\tasklist\index.ts" Target="app\shared\services\tasklist\" Type="ElementFile" />
+    <ProjectItemFile Source="app\shared\services\tasklist\tasklist.model.ts" Target="app\shared\services\tasklist\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

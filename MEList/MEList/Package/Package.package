@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="468494c3-c2c6-49b8-9534-42a10000bfeb" 
+        solutionId="468494c3-c2c6-49b8-9534-42a10000bfeb" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="MEList"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="90dc2b97-0769-4a1f-8e73-ad5c39269c12" />
+  </features>
+</package>

@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEList", "MEList\MEList.csproj", "{D6766FE7-A160-4011-8576-F2C62DB47BAD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6766FE7-A160-4011-8576-F2C62DB47BAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6766FE7-A160-4011-8576-F2C62DB47BAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6766FE7-A160-4011-8576-F2C62DB47BAD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D6766FE7-A160-4011-8576-F2C62DB47BAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6766FE7-A160-4011-8576-F2C62DB47BAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6766FE7-A160-4011-8576-F2C62DB47BAD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {932EC354-5AA2-42C6-8E99-DF5A5C84CECF}
+	EndGlobalSection
+EndGlobal

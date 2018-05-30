@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="RootModule">
+    <File Path="package.json" Url="package.json" ReplaceContent="TRUE" />
+    <File Path="tsconfig.json" Url="tsconfig.json" ReplaceContent="TRUE" />
+    <File Path="config\config.js" Url="config/config.js" ReplaceContent="TRUE" />
+    <File Path="config\hashing.js" Url="config/hashing.js" ReplaceContent="TRUE" />
+    <File Path="config\helpers.js" Url="config/helpers.js" ReplaceContent="TRUE" />
+    <File Path="config\karma-test-shim.js" Url="config/karma-test-shim.js" ReplaceContent="TRUE" />
+    <File Path="config\karma.conf.js" Url="config/karma.conf.js" ReplaceContent="TRUE" />
+    <File Path="config\webpack.common.js" Url="config/webpack.common.js" ReplaceContent="TRUE" />
+    <File Path="config\webpack.dev.js" Url="config/webpack.dev.js" ReplaceContent="TRUE" />
+    <File Path="app\app-mixins.scss" Url="app/app-mixins.scss" ReplaceContent="TRUE" />
+    <File Path="app\app.module.ts" Url="app/app.module.ts" ReplaceContent="TRUE" />
+    <File Path="app\main.ts" Url="app/main.ts" ReplaceContent="TRUE" />
+    <File Path="app\polyfills.ts" Url="app/polyfills.ts" ReplaceContent="TRUE" />
+    <File Path="app\sharepoint-reset.scss" Url="app/sharepoint-reset.scss" ReplaceContent="TRUE" />
+    <File Path="app\styles.scss" Url="app/styles.scss" ReplaceContent="TRUE" />
+    <File Path="app\vendor.ts" Url="app/vendor.ts" ReplaceContent="TRUE" />
+    <File Path="app\components\app.component.ts" Url="app/components/app.component.ts" ReplaceContent="TRUE" />
+    <File Path="app\components\app.html" Url="app/components/app.html" ReplaceContent="TRUE" />
+    <File Path="app\components\app.scss" Url="app/components/app.scss" ReplaceContent="TRUE" />
+    <File Path="app\components\tasklist\index.ts" Url="app/components/tasklist/index.ts" ReplaceContent="TRUE" />
+    <File Path="app\components\tasklist\tasklist.module.ts" Url="app/components/tasklist/tasklist.module.ts" ReplaceContent="TRUE" />
+    <File Path="app\components\tasklist\tasklist-root\tasklist.component.ts" Url="app/components/tasklist/tasklist-root/tasklist.component.ts" ReplaceContent="TRUE" />
+    <File Path="app\components\tasklist\tasklist-root\tasklist.html" Url="app/components/tasklist/tasklist-root/tasklist.html" ReplaceContent="TRUE" />
+    <File Path="app\components\tasklist\tasklist-root\tasklist.scss" Url="app/components/tasklist/tasklist-root/tasklist.scss" ReplaceContent="TRUE" />
+    <File Path="app\shared\components\index.ts" Url="app/shared/components/index.ts" ReplaceContent="TRUE" />
+    <File Path="app\shared\components\shared-components.module.ts" Url="app/shared/components/shared-components.module.ts" ReplaceContent="TRUE" />
+    <File Path="app\shared\models\task.ts" Url="app/shared/models/task.ts" ReplaceContent="TRUE" />
+    <File Path="app\shared\services\task.service.ts" Url="app/shared/services/task.service.ts" ReplaceContent="TRUE" />
+    <File Path="app\shared\services\tasklist\index.ts" Url="app/shared/services/tasklist/index.ts" ReplaceContent="TRUE" />
+    <File Path="app\shared\services\tasklist\tasklist.model.ts" Url="app/shared/services/tasklist/tasklist.model.ts" ReplaceContent="TRUE" />
+  </Module>
+</Elements>
